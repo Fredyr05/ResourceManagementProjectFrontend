@@ -1,0 +1,23 @@
+mat-sidenav-container {
+    height: 100%;
+}
+
+#sidebar{
+    background-color: black;
+    color: white;
+    width: 25%;
+}
+
+button {
+    background-color: black;
+    color: white;
+    border-radius: 0px 5px 5px 0px;
+    border: none;
+    height: 8%;
+    width: 4%;
+}
+
+p {
+    text-align: left;
+    padding-left: 5%;
+}

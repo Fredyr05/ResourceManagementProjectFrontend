@@ -1,0 +1,10 @@
+<mat-sidenav-container>
+    <mat-sidenav mode='side' [(opened)]='opened' id="sidebar">
+        <p>Resource</p>
+        <p>Project</p>
+        <p>Formula</p>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <button (click)='openClose()'>{{buttonText}}</button>
+    </mat-sidenav-content>
+</mat-sidenav-container>
