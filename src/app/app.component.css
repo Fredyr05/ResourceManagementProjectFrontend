@@ -6,5 +6,23 @@
 
 #sidebar {
     height: 85vh;
-    width: 100%;
+    width: 30%;
+    margin: 0%;
+    display: inline-block;
+}
+
+#content {
+    height: 85vh;
+    width: 70%;
+    margin: 0%;
+    float: right;
+}
+
+#positionContent {
+    height: 85vh;
+    margin: 0%;
+}
+
+router-outlet {
+    float: left;
 }
