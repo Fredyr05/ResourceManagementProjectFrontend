@@ -1,0 +1,36 @@
+mat-form-field {
+    line-height: 100%;
+    float: right;
+    margin-right: 5%;
+    border-style: solid;
+    border-color: lightgray;
+    border-width: thin;
+}
+
+::ng-deep .mat-select-value {
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-label {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 6px;
+}
+
+::ng-deep .mat-select-arrow-wrapper {
+    border-style: solid;
+    border-color: lightgray;
+    border-width: thin;
+}
+
+table {
+    line-height: 100%;
+}
+
+.fix {
+    line-height: unset;
+}

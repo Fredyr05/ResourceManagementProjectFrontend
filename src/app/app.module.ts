@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -28,6 +29,7 @@ import { AppRoutingModule } from './app.routes';
     BrowserAnimationsModule,
     MatSidenavModule,
     MatSelectModule,
+    MatTableModule,
     AppRoutingModule
   ],
   providers: [],

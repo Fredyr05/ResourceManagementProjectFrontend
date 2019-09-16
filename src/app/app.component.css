@@ -8,7 +8,7 @@
     height: 85vh;
     width: 30%;
     margin: 0%;
-    display: inline-block;
+    float: left;
 }
 
 #content {
@@ -20,6 +20,5 @@
 
 #positionContent {
     height: 85vh;
-    margin: 0%;
     line-height: 0%;
 }
