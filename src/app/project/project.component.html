@@ -1,0 +1,8 @@
+<mat-form-field>
+    <mat-label>Select Project</mat-label>
+    <mat-select>
+        <mat-option *ngFor="let proj of projects" [value]="proj.projName">
+            {{proj.projName}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
