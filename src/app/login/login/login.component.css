@@ -8,14 +8,18 @@ a{
 }
 .login-container{
     border: 2px solid black;
+    margin: 1em;
+    height: 50%;
+    display: inline-block;
+    width: 100%;
 }
 
 .login-header{
     text-align: center;
     background: darkorange;
     padding: 1em;
+    color: white;
     margin-bottom: 1em;
-    border-bottom: 2px solid black;
 }
 
 .form-container{
