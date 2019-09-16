@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProjectComponent } from './project/project.component';
 import { ResourceComponent } from './resource/resource.component';
+import { LoginComponent } from './login/login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ResourceComponent } from './resource/resource.component';
     HeaderComponent,
     SidebarComponent,
     ProjectComponent,
-    ResourceComponent
+    ResourceComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
