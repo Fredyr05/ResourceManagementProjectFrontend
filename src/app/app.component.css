@@ -21,8 +21,5 @@
 #positionContent {
     height: 85vh;
     margin: 0%;
-}
-
-router-outlet {
-    float: left;
+    line-height: 0%;
 }
