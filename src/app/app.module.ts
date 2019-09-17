@@ -6,18 +6,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
-<<<<<<< HEAD
 import { MatListModule } from '@angular/material/list';
 
 import { SidebarService } from './services/sidebar.service';
-=======
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 
 import { ReactiveFormsModule} from '@angular/forms'
->>>>>>> dev_john
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -44,17 +41,13 @@ import { AppRoutingModule } from './app.routes';
     MatSidenavModule,
     MatSelectModule,
     MatTableModule,
-<<<<<<< HEAD
     MatListModule,
-    AppRoutingModule
-=======
     AppRoutingModule,
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
     MatChipsModule,
     ReactiveFormsModule
->>>>>>> dev_john
   ],
   providers: [SidebarService],
   bootstrap: [AppComponent]
