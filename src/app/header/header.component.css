@@ -1,26 +1,31 @@
 #container {
     width: 100%;
-}
-
-#sideLogo {
-    width: 25%;
-    height: 15vh;
-    background-color: darkorange;
-}
-
-#logoTitle {
-    font-size: 20px;
-    color: white;
-}
-
-p {
-    margin-top: 0%;
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+    border-right: none;
+    border-left: none;
+    float: left;
+    margin: 0%;
 }
 
 h1 {
+    float: left;
+    margin-left: 15%;
+    margin-right: 10%;
+}
+
+#sideLogo {
+    width: 25vw;
+    height: 16vh;
+    background-color: darkorange;
+    float: left;
+}
+
+.square {
     height: 25px;
     width: 30px;
-    margin: 5px;
+    margin: 2px;
     padding: 0%;
     background-color: white;
     border: 20px;
@@ -28,7 +33,33 @@ h1 {
     border-radius: 5px 5px 5px 5px;
 }
 
-.lineup {
-    display: inline-block;
+.white {
+    color: white;
+    font-size: 20px;
+    float: left;
+    padding-top: 44px;
+}
+
+table {
+    padding-top: 10px;
+    padding-right: 0%;
+    float: left;
+}
+
+fa-icon {
+    float: right;
+    margin: 0%;
+    font-size: 40px;
+    padding-top: 25px;
+    padding-bottom: 0%;
+    margin-bottom: 0%;
+}
+
+h2 {
+    float: right;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 0%;
     margin-bottom: 0%;
 }
