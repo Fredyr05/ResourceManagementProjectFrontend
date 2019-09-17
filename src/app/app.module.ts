@@ -6,6 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
+import { MatListModule } from '@angular/material/list';
 
 import { SidebarService } from './services/sidebar.service';
 
@@ -34,6 +35,7 @@ import { AppRoutingModule } from './app.routes';
     MatSidenavModule,
     MatSelectModule,
     MatTableModule,
+    MatListModule,
     AppRoutingModule
   ],
   providers: [SidebarService],

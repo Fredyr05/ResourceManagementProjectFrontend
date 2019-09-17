@@ -6,6 +6,7 @@ import { from } from 'rxjs';
 
 const appRoutes: Routes = [
   //{ path: '', redirectTo: '/recipes', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'project', component: ProjectComponent},
   { path: 'login', component: LoginComponent}
   /*children: [

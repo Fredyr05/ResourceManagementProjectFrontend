@@ -1,8 +1,10 @@
 <mat-sidenav-container>
     <mat-sidenav mode='side' [(opened)]='opened' id='sidebar'>
-        <p>Resource</p>
-        <p>Project</p>
-        <p>Formula</p>
+        <mat-list role="list">
+            <a href="/resource" mat-list-item>Resource</a>
+            <a href="/project" mat-list-item>Project</a>
+            <a href="/formula" mat-list-item>Formula</a>
+        </mat-list>
     </mat-sidenav>
     <mat-sidenav-content>
         <button (click)='openClose()'>{{buttonText}}</button>
