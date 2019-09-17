@@ -30,7 +30,7 @@
 .input-container{
     width: 100%;
     border: 1px solid black;
-    margin-bottom: 5px;
+    margin-bottom: 1em;
 }
 
 .form-container h3{
@@ -73,4 +73,8 @@
 
 .signup-btn:hover{
     cursor: pointer;
+}
+
+::ng-deep .mat-checkbox-inner-container {
+    background: transparent;
 }
