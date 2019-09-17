@@ -1,6 +1,7 @@
 *{
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box;
 }
 
 a{
@@ -9,9 +10,7 @@ a{
 .login-container{
     border: 2px solid black;
     margin: 1em;
-    height: 50%;
     display: inline-block;
-    width: 100%;
 }
 
 .login-header{
@@ -24,7 +23,7 @@ a{
 
 .form-container{
     text-align: left;
-    padding: 3px;
+    padding: 4px;
 }
 
 .form-container h3{
