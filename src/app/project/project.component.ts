@@ -31,7 +31,7 @@ export class ProjectComponent {
     }
   
     fillDummyData(){
-        this.columnNames = ["Resource", "Code"];
+        this.columnNames = ["PROJECT NAME", "PROJECT CODE"];
         this.columnData = [{
             resource: 'Wood',
             code: '00 00 00'
@@ -47,6 +47,18 @@ export class ProjectComponent {
         },{
             resource: 'Diamond',
             code: '44 44 44'
+        },{
+            resource: 'Gold',
+            code: '55 55 55'
+        },{
+            resource: 'Steel',
+            code: '66 66 66'
+        },{
+            resource: 'Sand',
+            code: '77 77 77'
+        },{
+            resource: 'Stone',
+            code: '88 88 88'
         }]
 
         this.addProject(1,"Project 1");
