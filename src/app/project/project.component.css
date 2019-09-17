@@ -43,33 +43,42 @@ th {
     background-color: lightgray;
     text-align: center;
     border-style: solid;
-    border-color: gray;
+    border-color: #C0C0C0;
     border-width: thin;
 }
 
 #resourceTable {
     float: left;
     margin: 20px;
+    margin-left: 45px;
+    margin-right: 5px;
     width: 45%;
+    height: 100%;
 }
 
 #projectTable {
     float: right;
     margin: 20px;
+    margin-right: 45px;
+    margin-left: 5px;
     width: 45%;
+    height: 100%;
 }
 
 table {
     width: 100%;
     border-style: solid;
-    border-color: black;
+    border-color: lightgray;
     border-width: thin;
     border-spacing: 0%;
     border-collapse: collapse;
+    height: 100%;
 }
 
 td {
     margin: 0%;
+    max-height: 20px;
+    height: 20px;
 }
 
 button {
@@ -93,4 +102,13 @@ a:link,a:visited {
 
 a:hover,a:active {
     color: blue;
+}
+
+#submit {
+    float: right;
+    margin-right: 5%;
+    margin-top: 5%;
+    background-color: darkorange;
+    border-style: none;
+    color: white;
 }
