@@ -1,0 +1,15 @@
+:host ::ng-deep .ui-toolbar{
+	width:90%;
+	margin:auto;
+	padding-bottom: 1em;
+	border:0px;
+	background-color: gray;
+	color:white;
+}
+:host ::ng-deep .ui-corner-all{
+	border-radius: 0px;
+}
+:host ::ng-deep .ui-table{
+	width:90%;
+	margin:auto;
+}

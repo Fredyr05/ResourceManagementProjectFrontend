@@ -1,0 +1,20 @@
+<p-toolbar>
+QUANTITY SURVEY
+</p-toolbar>
+<p-table [value]="cars">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Vin</th>
+			<th>Year</th>
+			
+        
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-car>
+        <tr>
+            <td>{{car.vin}}</td>
+            <td>{{car.year}}</td>
+           
+        </tr>
+    </ng-template>
+</p-table>
