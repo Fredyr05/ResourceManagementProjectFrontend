@@ -9,6 +9,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
 
 import { SidebarService } from './services/sidebar.service';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatChipsModule } from '@angular/material/chips';
+
+import { ReactiveFormsModule} from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -49,7 +55,12 @@ import {ButtonModule} from 'primeng/button';
     MatListModule,
     AppRoutingModule,
     TableModule,
-    ToolbarModule
+    ToolbarModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    ReactiveFormsModule
   ],
   providers: [SidebarService],
   bootstrap: [AppComponent]
