@@ -2,7 +2,7 @@ mat-sidenav-container {
     height: 100%;
 }
 
-#sidebar{
+#sidebar {
     background-color: black;
     color: white;
     width: 25vw;
@@ -21,5 +21,4 @@ button {
 p {
     text-align: left;
     padding-left: 5%;
-    line-height: 100%;
 }
