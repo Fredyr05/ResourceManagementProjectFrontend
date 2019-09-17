@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import {LoginComponent} from './login/login/login.component';
 import { ProjectComponent } from './project/project.component';
 import { from } from 'rxjs';
+import { FormulaComponent } from './formula/formula.component';
 
 const appRoutes: Routes = [
   //{ path: '', redirectTo: '/recipes', pathMatch: 'full' },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'project', component: ProjectComponent},
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+  {path: 'formula',component: FormulaComponent}
   /*children: [
     { path: '', component: RecipeStartComponent },
     { path: 'new', component: RecipeEditComponent },

@@ -18,6 +18,15 @@ import { ResourceComponent } from './resource/resource.component';
 import { LoginComponent } from './login/login/login.component';
 
 import { AppRoutingModule } from './app.routes';
+import { FormulaComponent } from './formula/formula.component';
+import { TemplateComponent } from './template/template.component';
+
+
+import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
+import {MenuItem} from 'primeng/api';   
+import {ToolbarModule} from 'primeng/toolbar';
+import {TableModule} from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -26,7 +35,9 @@ import { AppRoutingModule } from './app.routes';
     SidebarComponent,
     ProjectComponent,
     ResourceComponent,
-    LoginComponent
+    LoginComponent,
+    FormulaComponent,
+    TemplateComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +47,9 @@ import { AppRoutingModule } from './app.routes';
     MatSelectModule,
     MatTableModule,
     MatListModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TableModule,
+    ToolbarModule
   ],
   providers: [SidebarService],
   bootstrap: [AppComponent]
