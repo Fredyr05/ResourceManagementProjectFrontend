@@ -24,10 +24,6 @@
     width: 20em;
 }
 
-.form-container a{
-    float: right;
-}
-
 .input-container{
     width: 100%;
     margin-bottom: 1em;
@@ -75,6 +71,6 @@
     cursor: pointer;
 }
 
-::ng-deep .mat-checkbox-inner-container {
-    background: transparent;
+.forgotpassword-link{
+    float: right;
 }
