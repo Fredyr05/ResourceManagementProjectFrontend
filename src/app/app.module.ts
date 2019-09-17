@@ -33,6 +33,7 @@ import {MenuItem} from 'primeng/api';
 import {ToolbarModule} from 'primeng/toolbar';
 import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
+import { SignupComponent } from './signup/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {ButtonModule} from 'primeng/button';
     ResourceComponent,
     LoginComponent,
     FormulaComponent,
-    TemplateComponent
+    TemplateComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
