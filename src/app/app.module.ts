@@ -60,7 +60,18 @@ import {ButtonModule} from 'primeng/button';
     MatButtonModule,
     MatCheckboxModule,
     MatChipsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    ReactiveFormsModule,
+
+    TableModule,
+    ToolbarModule
+
+
+
   ],
   providers: [SidebarService],
   bootstrap: [AppComponent]
