@@ -3,17 +3,29 @@
         <h2>Login</h2>
     </div>
     <div class="form-container">
-            <form>
+            <form [formGroup] = "loginForm">
+                  
+                    <!-- For debugging purposes -->
+                    <!-- Value: {{loginForm.value | json}} -->
+
+
                     <h3>Username</h3>
-                    <input type="text" placeholder="username">
+                    <mat-form-field class="input-container" appearance="fill">
+                        <input type="text" matInput placeholder="username" formControlName ="username">
+                        <mat-error *ngIf="username.invalid && username.touched">
+                            Not valid
+                        </mat-error>
+                    </mat-form-field>
                     <h3>Password</h3>
-                    <input type="password" placeholder="password">
-                    <input class="sign-in-btn" type="submit" value="Login">
-                    <label>
-                        <input type="checkbox">Remember me
-                    </label>
-                    <input type="submit" class="signup-btn" value="Sign up">
-                    <a href="forgotPassword">Forgot Password</a> <!-- Fake link -->
+                    <mat-form-field class="input-container" appearance="fill">
+                        <input type="password" matInput placeholder="password" formControlName ="password">
+                    </mat-form-field>
+
+                    <button class="login-btn" mat-raised-button (click)="loginClick()">Login</button>
+                    <mat-checkbox class="remember-checkbox" fromControlName="checkbox"> Remember me</mat-checkbox>
+                    <button class="signup-btn" mat-raised-button (click)="signupClick()">Sign up</button>
+                    <!-- Fake link -->
+                    <a href="forgotPassword">Forgot Password</a>
                 </form>
     </div>
 </div>

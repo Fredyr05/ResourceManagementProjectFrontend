@@ -5,43 +5,39 @@
 }
 .login-container{
     margin: 1em;
-    display: inline-block;
+    /* display: inline-block; */
+    float: right;
+    margin-right: 40%;
 }
 
 .login-header{
     text-align: center;
-    background: darkorange;
     padding: 1em;
-    color: white;
+    color: darkorange;
     margin-bottom: 1em;
+    font-size: 20px;
+    font-style: italic;
 }
 
 .form-container{
     text-align: left;
-    width: 16em;
+    width: 20em;
+}
+
+.form-container a{
+    float: right;
+}
+
+.input-container{
+    width: 100%;
+    margin-bottom: 1em;
 }
 
 .form-container h3{
-    margin: 3px;
     display: block;
 }
 
-.form-container input[type="text"],[type="password"]{
-    margin: 3px 0px;
-    width: 100%;
-    font-size: 12px;
-    padding: 6px;
-}
-
-.form-container label{
-    display: block;
-    margin: 2px;
-}
-.form-container a{
-    display: inline-block;
-    float: right;
-}
-.sign-in-btn{
+.login-btn{
     display: block;
     width: 100%;
     padding: 5px;
@@ -52,6 +48,15 @@
     color: white;
     font-size: 16px;
     font-weight: bold;
+}
+
+.login-btn:hover{
+    cursor: pointer;
+}
+
+.remember-checkbox{
+    display: block;
+    margin: 5px 0px;
 }
 
 .signup-btn{
@@ -68,9 +73,8 @@
 
 .signup-btn:hover{
     cursor: pointer;
-    font-size: 15px;
 }
-.sign-in-btn:hover{
-    cursor: pointer;
-    font-size: 20px;
+
+::ng-deep .mat-checkbox-inner-container {
+    background: transparent;
 }
