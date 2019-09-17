@@ -1,25 +1,26 @@
 mat-form-field {
-    line-height: 100%;
     float: right;
     margin-right: 5%;
+    margin-left: 100%;
+}
+
+mat-select {
     border-style: solid;
     border-color: lightgray;
     border-width: thin;
-    margin-top: 2%;
+    margin: 0%;
+}
+
+::ng-deep .mat-select-panel {
+    max-width: 50px;
 }
 
 ::ng-deep .mat-select-value {
-    padding: 6px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 5px;
 }
 
-mat-label {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    padding: 6px;
+::ng-deep .mat-form-field-underline {
+    display: none;
 }
 
 ::ng-deep .mat-select-arrow-wrapper {
@@ -28,10 +29,68 @@ mat-label {
     border-width: thin;
 }
 
-table {
-    line-height: 100%;
+::ng-deep .myPanelClass{
+    margin-top: 27px !important;
+    margin-left: 16px !important;
+    min-width: 180px !important;
 }
 
-.fix {
-    line-height: unset;
+th {
+    background-color: gray;
+}
+
+.colName {
+    background-color: lightgray;
+    text-align: center;
+    border-style: solid;
+    border-color: gray;
+    border-width: thin;
+}
+
+#resourceTable {
+    float: left;
+    margin: 20px;
+    width: 45%;
+}
+
+#projectTable {
+    float: right;
+    margin: 20px;
+    width: 45%;
+}
+
+table {
+    width: 100%;
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+    border-spacing: 0%;
+    border-collapse: collapse;
+}
+
+td {
+    margin: 0%;
+}
+
+button {
+    margin-left: 20px;
+}
+
+.title {
+    background-color: gray;
+    text-align: center;
+}
+
+h5 {
+    margin-left: 5%;
+}
+
+a:link,a:visited {
+    text-align: left;
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover,a:active {
+    color: blue;
 }

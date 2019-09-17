@@ -1,18 +1,42 @@
 <mat-form-field>
-    <mat-label>Select Project</mat-label>
-    <mat-select>
-        <mat-option *ngFor="let proj of projects" [value]="proj.projName">
+    <mat-select disableOptionCentering panelClass="myPanelClass" [value]="selected">
+        <mat-option *ngFor="let proj of projects" [attr.id]="proj.projId" [value]="proj.projName">
             {{proj.projName}}
         </mat-option>
     </mat-select>
 </mat-form-field>
 <br><br>
-<table>
-    <th>
-        <tr>
-            <td>Hello</td>
-            <td>What</td>
-            <td>Yup</td>
-        </tr>
-    </th>
-</table>
+<div id="resourceTable">
+    <table>
+        <tbody>
+            <tr>
+                <td class="title" colspan="2">Resource Catalog</td>
+            </tr>
+            <tr>
+                <td class="colName" *ngFor="let columnName of columnNames">{{columnName}}</td>
+            </tr>
+            <tr *ngFor="let data of columnData">
+                <td>{{data.resource}}</td>
+                <td>{{data.code}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/resource"><h5>Edit Resource</h5></a>
+</div>
+<div id="projectTable">
+    <table>
+        <tbody>
+            <tr>
+                <td class="title" colspan="2">Project</td>
+            </tr>
+            <tr>
+                <td class="colName" *ngFor="let columnName of columnNames">{{columnName}}</td>
+            </tr>
+            <tr *ngFor="let data of columnData">
+                <td>{{data.resource}}</td>
+                <td>{{data.code}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<button (click)='fillDummyData()'>Fill with Dummy Data</button>
