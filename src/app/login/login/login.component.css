@@ -3,12 +3,7 @@
     margin: 0px;
     box-sizing: border-box;
 }
-
-a{
-    display: inline;
-}
 .login-container{
-    border: 2px solid black;
     margin: 1em;
     display: inline-block;
 }
@@ -23,7 +18,7 @@ a{
 
 .form-container{
     text-align: left;
-    padding: 4px;
+    width: 16em;
 }
 
 .form-container h3{
@@ -31,8 +26,11 @@ a{
     display: block;
 }
 
-.form-container input{
-    margin: 3px;
+.form-container input[type="text"],[type="password"]{
+    margin: 3px 0px;
+    width: 100%;
+    font-size: 12px;
+    padding: 6px;
 }
 
 .form-container label{
@@ -40,20 +38,38 @@ a{
     margin: 2px;
 }
 .form-container a{
-    display: inline;
-    margin-left: 16px;
+    display: inline-block;
+    float: right;
 }
 .sign-in-btn{
-    display: inline-block;
+    display: block;
+    width: 100%;
     padding: 5px;
+    margin: 3px 0px;
     border: none;
     text-align: center;
     background:darkorange;
     color: white;
     font-size: 16px;
+    font-weight: bold;
 }
 
+.signup-btn{
+    display: inline-block;
+    padding: 5px;
+    margin: 3px 0px;
+    border: none;
+    text-align: center;
+    background:darkorange;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
 
+.signup-btn:hover{
+    cursor: pointer;
+    font-size: 15px;
+}
 .sign-in-btn:hover{
     cursor: pointer;
     font-size: 20px;
