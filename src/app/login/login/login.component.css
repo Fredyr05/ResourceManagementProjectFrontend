@@ -73,4 +73,5 @@
 
 .forgotpassword-link{
     float: right;
+    text-decoration: underline;
 }

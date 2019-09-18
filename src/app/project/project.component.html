@@ -1,42 +1,47 @@
 <mat-form-field>
-    <mat-select disableOptionCentering panelClass="myPanelClass" [value]="selected">
-        <mat-option *ngFor="let proj of projects" [attr.id]="proj.projId" [value]="proj.projName">
-            {{proj.projName}}
+    <mat-select id="select" disableOptionCentering panelClass="myPanelClass" [value]="selected">
+        <mat-option disabled><input type="text" id="search" onkeyup="filter()" placeholder="Search for names.." title="Type in a name"/></mat-option>
+        <mat-option *ngFor="let project of projects" [attr.id]="project.projId" [value]="project.projName">
+            {{project.projName}}
         </mat-option>
     </mat-select>
 </mat-form-field>
 <br><br>
 <div id="resourceTable">
-    <table>
+    <table id="rTable">
         <tbody>
             <tr>
                 <td class="title" colspan="2">Resource Catalog</td>
             </tr>
             <tr>
-                <td class="colName" *ngFor="let columnName of columnNames">{{columnName}}</td>
+                <!--<td class="colName" *ngFor="let resource of resources">{{resource.resName}}</td>-->
+                <td class="colName">PROJECT NAME</td>
+                <td class="colName">PROJECT CODE</td>
             </tr>
-            <tr *ngFor="let data of columnData">
-                <td>{{data.resource}}</td>
-                <td>{{data.code}}</td>
+            <tr *ngFor="let resource of resources">
+                <td>{{resource.resName}}</td>
+                <td>{{resource.resCode}}</td>
             </tr>
         </tbody>
     </table>
     <a href="/resource"><h5>Edit Resource</h5></a>
 </div>
 <div id="projectTable">
-    <table>
+    <table id="pTable">
         <tbody>
             <tr>
                 <td class="title" colspan="2">Project</td>
             </tr>
             <tr>
-                <td class="colName" *ngFor="let columnName of columnNames">{{columnName}}</td>
+                <!--<td class="colName" *ngFor="let resource of resources">{{resource.resName}}</td>-->
+                <td class="colName">PROJECT NAME</td>
+                <td class="colName">PROJECT CODE</td>
             </tr>
-            <tr *ngFor="let data of columnData">
-                <td>{{data.resource}}</td>
-                <td>{{data.code}}</td>
+            <tr *ngFor="let resource of resources">
+                <td>{{resource.resName}}</td>
+                <td>{{resource.resCode}}</td>
             </tr>
         </tbody>
     </table>
+    <button id="submit">&#10004; Submit</button>
 </div>
-<button (click)='fillDummyData()'>Fill with Dummy Data</button>
