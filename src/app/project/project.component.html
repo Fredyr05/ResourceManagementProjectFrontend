@@ -1,6 +1,6 @@
 <mat-form-field>
-    <mat-select id="select" disableOptionCentering panelClass="myPanelClass" [value]="selected">
-        <mat-option disabled><input type="text" id="search" onkeyup="filter()" placeholder="Search for names.." title="Type in a name"/></mat-option>
+    <mat-select disableOptionCentering panelClass="myPanelClass" [value]="selected">
+        <mat-option disabled><input type="text" id="search" onkeyup="filter()" placeholder="Search for project.." title="Type in a project name"/></mat-option>
         <mat-option *ngFor="let project of projects" [attr.id]="project.projId" [value]="project.projName">
             {{project.projName}}
         </mat-option>
