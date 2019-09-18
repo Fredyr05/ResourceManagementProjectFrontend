@@ -5,7 +5,7 @@ import { ProjectComponent } from './project/project.component';
 import { from } from 'rxjs';
 import { FormulaComponent } from './formula/formula.component';
 import { TemplateComponent } from './template/template.component';
-
+import { SignupComponent } from './signup/signup/signup.component';
 const appRoutes: Routes = [
   //{ path: '', redirectTo: '/recipes', pathMatch: 'full' },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -13,6 +13,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent},
   {path: 'formula',component: FormulaComponent},
   {path: 'template',component: TemplateComponent}
+  {path: 'signup',component: SignupComponent}
   /*children: [
     { path: '', component: RecipeStartComponent },
     { path: 'new', component: RecipeEditComponent },

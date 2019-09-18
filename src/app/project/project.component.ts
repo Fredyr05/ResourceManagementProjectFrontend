@@ -1,55 +1,51 @@
-import { Component } from '@angular/core';
-
-export interface Project {
-    projId: number;
-    projName: String;
-}
+import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.css']
 })
-export class ProjectComponent {
+export class ProjectComponent implements OnInit{
 
-    projects: Project[] = [];
-    project: Project;
+    constructor(private httpService: HttpService){}
 
-    columnNames: String[];
-    columnData;
-    selected;
+    projects: any;
+    resources: any;
 
-    addProject(projId:number,projName:String){
-        if(this.projects.length == 0){
-            this.selected = projName;
-        }
-        this.project = {
-            projId,
-            projName
-        };
-        this.projects.push(this.project);
+    ngOnInit(){
+        this.getAllProjects();
+        this.getAllResources();
     }
-  
-    fillDummyData(){
-        this.columnNames = ["Resource", "Code"];
-        this.columnData = [{
-            resource: 'Wood',
-            code: '00 00 00'
-        },{
-            resource: 'Metal',
-            code: '11 11 11'
-        },{
-            resource: 'Coal',
-            code: '22 22 22'
-        },{
-            resource: 'Paper',
-            code: '33 33 33'
-        },{
-            resource: 'Diamond',
-            code: '44 44 44'
-        }]
 
-        this.addProject(1,"Project 1");
-        this.addProject(2,"Project 2");
+    getAllProjects(){
+        this.httpService.getAllProjects().subscribe(
+            res => {this.projects = res;}
+        );
+    }
+
+    getAllResources(){
+        this.httpService.getAllResources().subscribe(
+            res => {this.resources = res;}
+        );
+    }
+
+    filter() {
+        let input, filter, select, options, option, txtValue;
+        input = document.getElementById("search");
+        filter = input.value.toUpperCase();
+        select = document.getElementById("select");
+        options = select.getElementsByTagName("mat-option");
+        for (let i = 0; i < options.length; i++) {
+            option = options[i];
+            if (option) {
+                txtValue = option.textContent || option.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    options[i].style.display = "";
+                } else {
+                    options[i].style.display = "none";
+                }
+            }       
+        }
     }
 }

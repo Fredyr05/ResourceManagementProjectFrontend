@@ -43,33 +43,46 @@ th {
     background-color: lightgray;
     text-align: center;
     border-style: solid;
-    border-color: gray;
+    border-color: #C0C0C0;
     border-width: thin;
 }
 
 #resourceTable {
     float: left;
-    margin: 20px;
     width: 45%;
+    height: 100%;
+    margin-left: 35px;
 }
 
 #projectTable {
     float: right;
-    margin: 20px;
     width: 45%;
+    height: 100%;
+    margin-right: 35px;
+}
+
+#rTable {
+    float: right;
+}
+
+#pTable {
+    float: left;
 }
 
 table {
     width: 100%;
     border-style: solid;
-    border-color: black;
+    border-color: lightgray;
     border-width: thin;
     border-spacing: 0%;
     border-collapse: collapse;
+    height: 100%;
 }
 
 td {
     margin: 0%;
+    max-height: 20px;
+    height: 20px;
 }
 
 button {
@@ -81,8 +94,9 @@ button {
     text-align: center;
 }
 
-h5 {
+h5,a {
     margin-left: 5%;
+    margin-top: 2%;
 }
 
 a:link,a:visited {
@@ -93,4 +107,13 @@ a:link,a:visited {
 
 a:hover,a:active {
     color: blue;
+}
+
+#submit {
+    float: right;
+    margin-right: 5%;
+    margin-top: 5%;
+    background-color: darkorange;
+    border-style: none;
+    color: white;
 }
