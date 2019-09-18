@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SidebarService } from '../services/sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,8 +7,6 @@ import { SidebarService } from '../services/sidebar.service';
 })
 export class SidebarComponent {
 
-  constructor(private sidebar:SidebarService){}
-
   opened = false;
   buttonText = '>';
 
@@ -17,13 +14,9 @@ export class SidebarComponent {
     this.opened = !this.opened;
     if(this.buttonText === '>'){
         this.buttonText = '<';
-        this.sidebar.setSize('30%');
-        this.sidebar.setContentSize('70%');
     }
     else{
         this.buttonText = '>';
-        this.sidebar.setSize('10%');
-        this.sidebar.setContentSize('90%');
     }
   }
 }

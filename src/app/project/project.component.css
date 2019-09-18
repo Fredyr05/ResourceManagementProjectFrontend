@@ -49,20 +49,24 @@ th {
 
 #resourceTable {
     float: left;
-    margin: 20px;
-    margin-left: 45px;
-    margin-right: 5px;
     width: 45%;
     height: 100%;
+    margin-left: 35px;
 }
 
 #projectTable {
     float: right;
-    margin: 20px;
-    margin-right: 45px;
-    margin-left: 5px;
     width: 45%;
     height: 100%;
+    margin-right: 35px;
+}
+
+#rTable {
+    float: right;
+}
+
+#pTable {
+    float: left;
 }
 
 table {
@@ -90,8 +94,9 @@ button {
     text-align: center;
 }
 
-h5 {
+h5,a {
     margin-left: 5%;
+    margin-top: 2%;
 }
 
 a:link,a:visited {

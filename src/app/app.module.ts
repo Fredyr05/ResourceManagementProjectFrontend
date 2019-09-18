@@ -2,13 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
 
-import { SidebarService } from './services/sidebar.service';
+import { HttpService } from './services/http.service';
+
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -56,19 +58,16 @@ import { SignupComponent } from './signup/signup/signup.component';
     MatTableModule,
     MatListModule,
     AppRoutingModule,
-        MatInputModule,
+    MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
     MatChipsModule,
     ReactiveFormsModule,
-
     TableModule,
-    ToolbarModule
-
-
-
+    ToolbarModule,
+    HttpClientModule
   ],
-  providers: [SidebarService],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
