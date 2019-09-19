@@ -8,7 +8,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
 
-import { SidebarService } from './services/sidebar.service';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -26,13 +25,13 @@ import { LoginComponent } from './login/login/login.component';
 import { AppRoutingModule } from './app.routes';
 import { FormulaComponent } from './formula/formula.component';
 import { TemplateComponent } from './template/template.component';
-
-
-import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
-import {MenuItem} from 'primeng/api';   
+import { SignupComponent } from './signup/signup/signup.component';
+import {AccordionModule} from 'primeng/accordion';     // accordion and accordion tab
+import {MenuItem} from 'primeng/api';
 import {ToolbarModule} from 'primeng/toolbar';
 import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
+import {CheckboxModule} from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -43,7 +42,8 @@ import {ButtonModule} from 'primeng/button';
     ResourceComponent,
     LoginComponent,
     FormulaComponent,
-    TemplateComponent
+    TemplateComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -66,14 +66,16 @@ import {ButtonModule} from 'primeng/button';
     MatCheckboxModule,
     MatChipsModule,
     ReactiveFormsModule,
-
+    AccordionModule,
     TableModule,
-    ToolbarModule
+    ToolbarModule,
+    CheckboxModule,
+    ButtonModule
 
 
 
   ],
-  providers: [SidebarService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

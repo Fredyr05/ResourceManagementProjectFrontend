@@ -1,11 +1,29 @@
-<div style="column-count: 2">
-	<div>
-		hello
+
+<div class="main-panel">
+	<div class="left-panel">
+		<p class="title"> Project Scope Fields</p>
+		
 	</div>
-	<div>
-		hello2
+	<div class="right-panel">
+		<p class="title"> Quantity Survey Fields</p>
+		<form [formGroup]="columnForm">
+			
+			<div formArrayName="columns" *ngFor="let col of cols.controls; let i = index">
+          		<div [formGroupName]="i">
+            		<div class="cube">
+						<input placeholder="" formControlName="name">
+					</div>
+            		<div class="cube">
+						
+					</div>
+				</div>
+          		</div>
+        	
+
+			<button (click)="addRow()">Add</button>
+		</form>
 	</div>
 </div>
-<div>
-	hello3
+<div class="bot-bar">
+	
 </div>
