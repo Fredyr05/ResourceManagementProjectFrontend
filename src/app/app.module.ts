@@ -2,14 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule } from '@angular/common/http';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
-
-import { HttpService } from './services/http.service';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -28,14 +25,13 @@ import { LoginComponent } from './login/login/login.component';
 import { AppRoutingModule } from './app.routes';
 import { FormulaComponent } from './formula/formula.component';
 import { TemplateComponent } from './template/template.component';
-
-
-import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
-import {MenuItem} from 'primeng/api';   
+import { SignupComponent } from './signup/signup/signup.component';
+import {AccordionModule} from 'primeng/accordion';     // accordion and accordion tab
+import {MenuItem} from 'primeng/api';
 import {ToolbarModule} from 'primeng/toolbar';
 import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
-import { SignupComponent } from './signup/signup/signup.component';
+import {CheckboxModule} from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -58,16 +54,28 @@ import { SignupComponent } from './signup/signup/signup.component';
     MatTableModule,
     MatListModule,
     AppRoutingModule,
+    TableModule,
+    ToolbarModule,
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
     MatChipsModule,
     ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    ReactiveFormsModule,
+    AccordionModule,
     TableModule,
     ToolbarModule,
-    HttpClientModule
+    CheckboxModule,
+    ButtonModule
+
+
+
   ],
-  providers: [HttpService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
