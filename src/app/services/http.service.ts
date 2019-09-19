@@ -15,7 +15,6 @@ export class HttpService {
     }
 
     getProjectResources(projId:string){
-        let params = new HttpParams().set("projId",projId);
         return this.http.get('http://localhost:8080/RMP/project/' + projId + '/resources');
     }
     

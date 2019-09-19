@@ -34,6 +34,7 @@ import {ToolbarModule} from 'primeng/toolbar';
 import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
 import {CheckboxModule} from 'primeng/checkbox';
+import { HttpService } from './services/http.service';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,7 @@ import {CheckboxModule} from 'primeng/checkbox';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
