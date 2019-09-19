@@ -33,10 +33,17 @@ mat-select {
     margin-top: 27px !important;
     margin-left: 16px !important;
     min-width: 180px !important;
+    width: 180px;
 }
 
-th {
-    background-color: gray;
+mat-option {
+    width: 100%;
+    padding-right: 0%;
+    margin: 0%;
+}
+
+#search {
+    width: 90%;
 }
 
 .colName {
@@ -45,20 +52,21 @@ th {
     border-style: solid;
     border-color: #C0C0C0;
     border-width: thin;
+    height: 30px;
 }
 
 #resourceTable {
     float: left;
     width: 45%;
     height: 100%;
-    margin-left: 35px;
+    margin-left: 3%;
 }
 
 #projectTable {
     float: right;
     width: 45%;
     height: 100%;
-    margin-right: 35px;
+    margin-right: 3%;
 }
 
 #rTable {
@@ -69,20 +77,35 @@ th {
     float: left;
 }
 
+#scroll {
+    overflow-y: auto;
+    height: 100%;
+}
+
 table {
     width: 100%;
+    height: 100%;
     border-style: solid;
     border-color: lightgray;
     border-width: thin;
     border-spacing: 0%;
     border-collapse: collapse;
-    height: 100%;
+    table-layout: fixed;
 }
 
-td {
+tr {
     margin: 0%;
     max-height: 20px;
     height: 20px;
+    min-height: 20px;
+    width: 100%;
+}
+
+td {
+    min-height: 20px;
+    max-height: 20px;
+    width: 100%;
+    padding: 0%;
 }
 
 button {
@@ -92,6 +115,14 @@ button {
 .title {
     background-color: gray;
     text-align: center;
+    height: 40px !important;
+    border-style: solid;
+    border-color: gray;
+    border-width: thin;
+    border-spacing: 0%;
+    border-collapse: collapse;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 h5,a {
@@ -116,4 +147,25 @@ a:hover,a:active {
     background-color: darkorange;
     border-style: none;
     color: white;
+}
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border-color: lightgray;
+    border-width: thin;
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+    background-color: darkorange !important;
+}
+
+mat-checkbox {
+    margin-left: 5%;
+}
+
+#filler {
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 0%;
 }

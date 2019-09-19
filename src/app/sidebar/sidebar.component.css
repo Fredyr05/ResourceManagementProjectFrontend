@@ -5,7 +5,7 @@ mat-sidenav-container {
 #sidebar {
     background-color: black;
     color: white;
-    width: 25vw;
+    width: 22.5vw;
     margin: 0%;
 }
 
@@ -17,7 +17,6 @@ button {
     height: 8%;
     width: 4vw;
 }
-
 a:link,a:visited {
     text-align: left;
     padding-left: 5%;
@@ -34,4 +33,9 @@ mat-list {
     margin: 0%;
     width: 50%;
     font-size: 20px;
+}
+
+
+::-webkit-scrollbar {
+    width: 0%;
 }

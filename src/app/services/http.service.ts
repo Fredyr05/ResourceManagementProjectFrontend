@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams  } from '@angular/common/http';
 
 @Injectable()
 
@@ -12,6 +12,11 @@ export class HttpService {
 
     getAllResources(){
         return this.http.get('http://localhost:8080/RMP/resource');
+    }
+
+    getProjectResources(projId:string){
+        let params = new HttpParams().set("projId",projId);
+        return this.http.get('http://localhost:8080/RMP/project/' + projId + '/resources');
     }
     
 }
