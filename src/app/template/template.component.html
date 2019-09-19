@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="main-panel">
 	<div class="left-panel">
 		<p class="title"> Project Scope Fields</p>
@@ -8,20 +8,32 @@
 		<p class="title"> Quantity Survey Fields</p>
 		<form [formGroup]="columnForm">
 			
-			<div formArrayName="columns" *ngFor="let col of cols.controls; let i = index">
-          		<div [formGroupName]="i">
-            		<div class="cube">
-						<input placeholder="" formControlName="name">
+			<div formArrayName="columns" *ngFor="let col of columnForm.get('columns').controls; let i = index">
+          		<div [formGroupName]="i"></div>
+					<div class="input">
+						Field<br>
+						<input formControlName="name">
 					</div>
-            		<div class="cube">
-						
+					<div class="input">
+						Type<br>
+						<select style="border-radius:3px" formControlName="description">
+							<option> Number </option>
+                    		<option> Text </option>
+                    		<option> Formula </option>
+						</select>
 					</div>
-				</div>
-          		</div>
-        	
-
-			<button (click)="addRow()">Add</button>
+					<div class="input">
+						Formula<br>
+						<input formControlName="name">
+					</div>
+					<button class="fa fa-trash" (click)="deleteRow(i)"></button>
+					
+			</div>
+			  
 		</form>
+		<div style = "float:right; margin-right:10px; margin-top:10px; margin-bottom:4px; padding-bottom:0px;" >
+		<p style="display: inline-block; margin:0;padding-right:5px;">Add Field</p> <button class="fa fa-plus" (click)="addRow()"></button>
+		</div>
 	</div>
 </div>
 <div class="bot-bar">

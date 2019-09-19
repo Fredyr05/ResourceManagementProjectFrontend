@@ -8,10 +8,6 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 export class TemplateComponent implements OnInit {
   columnForm: FormGroup;
   cols: FormArray;
-  arrayitems:{
-          name: '',
-      description: ''
-  }[]
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -21,13 +17,19 @@ export class TemplateComponent implements OnInit {
     this.cols = this.columnForm.controls.columns as FormArray;
   }
   createRow(): FormGroup {
-    let singlerow: FormGroup;
-    singlerow = this.formBuilder.group({});
-    return singlerow;
+    return this.formBuilder.group({
+                name: '',
+                description: ''
+    });
+
   }
   addRow(): void {
     this.cols = this.columnForm.controls.columns as FormArray;
     this.cols.push(this.createRow());
+  }
+  deleteRow(index: number): void {
+    this.cols = this.columnForm.controls.columns as FormArray;
+    this.cols.removeAt(index);
   }
 }
 
