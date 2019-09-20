@@ -6,17 +6,17 @@
 	</div>
 	<div class="right-panel">
 		<p class="title"> Quantity Survey Fields</p>
-		<form [formGroup]="columnForm">
+		<form>
 			
-			<div formArrayName="columns" *ngFor="let col of columnForm.get('columns').controls; let i = index">
-          		<div [formGroupName]="i"></div>
+			<div *ngFor="let column of columns; let i = index">
 					<div class="input">
+						
 						Field<br>
-						<input formControlName="name">
+						<input [(ngModel)]="column.name">
 					</div>
 					<div class="input">
 						Type<br>
-						<select style="border-radius:3px" formControlName="description">
+						<select style="border-radius:3px" [(ngModel)]="column.type">
 							<option> Number </option>
                     		<option> Text </option>
                     		<option> Formula </option>
@@ -24,7 +24,7 @@
 					</div>
 					<div class="input">
 						Formula<br>
-						<input formControlName="name">
+						<input [disabled]="isFormula(i)" [(ngModel)]="column.formula">
 					</div>
 					<button class="fa fa-trash" (click)="deleteRow(i)"></button>
 					
@@ -38,4 +38,7 @@
 </div>
 <div class="bot-bar">
 	
+</div>
+<div class="bot">
+	<button class="save">Save</button>
 </div>

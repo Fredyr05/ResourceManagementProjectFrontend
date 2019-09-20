@@ -37,6 +37,8 @@ import {ButtonModule} from 'primeng/button';
 import {CheckboxModule} from 'primeng/checkbox';
 import { HttpService } from './services/http.service';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
