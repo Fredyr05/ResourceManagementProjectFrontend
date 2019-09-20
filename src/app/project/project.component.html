@@ -1,7 +1,7 @@
 <mat-form-field *ngIf="projects != undefined">
-    <mat-select id="select" disableOptionCentering [(ngModel)]="selectedValue" panelClass="myPanelClass">
+    <mat-select id="select" disableOptionCentering [(ngModel)]="selectedValue" panelClass="myPanelClass" (ngModelChange)="setSelected(selectedValue)">
         <mat-option disabled><input type="text" id="search" (keyup)="filter($event.target.value)" placeholder="Search for project.." title="Type in a project name"/></mat-option>
-        <mat-option *ngFor="let project of filteredProjects" [attr.id]="project.projId" [value]="project.projName">
+        <mat-option *ngFor="let project of filteredProjects" [value]="project">
             {{project.projName}}
         </mat-option>
     </mat-select>
@@ -12,14 +12,25 @@
     <table id="rTable">
         <tbody id="rBody">
             <tr>
-                <td class="title" colspan="2">Resource Catalog</td>
+                <td class="title" colspan="2">Resource Catalog 
+                <button id="buttonSend" mat-button (click)="postResourceToProject(selectedValue.projId)"><fa-icon id="icon1" [icon]="faShare"></fa-icon></button>
+                <!--<mat-menu #menuSend="matMenu">
+                    <button mat-menu-item>Item 1</button>
+                    <button mat-menu-item>Item 2</button>
+                </mat-menu>-->
+                <button id="buttonList" mat-button [matMenuTriggerFor]="menuList"><fa-icon id="icon2" [icon]="faList"></fa-icon></button>
+                <mat-menu #menuList="matMenu">
+                    <button mat-menu-item ngDefaultControl [(ngModel)]="checked" (click)="selectAll()">Select All</button>
+                    <button mat-menu-item ngDefaultControl [(ngModel)]="checked" (click)="clearAll()">Clear Selection</button>
+                </mat-menu>
+                </td>
             </tr>
             <tr>
                 <td class="colName">PROJECT NAME</td>
                 <td class="colName">PROJECT CODE</td>
             </tr>
             <tr *ngFor="let resource of resources">
-                <td><mat-checkbox>{{resource.resName}}</mat-checkbox></td>
+                <td><mat-checkbox name="resourceOptions" ngDefaultControl [(ngModel)]="resource.checked">{{resource.resName}}</mat-checkbox></td>
                 <td>{{resource.resCode}}</td>
             </tr>
             <tr>
@@ -34,16 +45,16 @@
 <div id="projectTable">
     <div id="scroll">
     <table id="pTable">
-        <tbody id="pBody">
+        <tbody id="pBody" *ngIf="selectedValue != undefined">
             <tr>
-                <td class="title" colspan="2">Project</td>
+                <td class="title" colspan="2">{{selectedValue.projName}} <button id="buttonSend" mat-button (click)="deleteResourceFromProject(selectedValue.projId)"><fa-icon id="icon1" [icon]="faTrash"></fa-icon></button></td>
             </tr>
             <tr>
                 <td class="colName">PROJECT NAME</td>
                 <td class="colName">PROJECT CODE</td>
             </tr>
             <tr *ngFor="let projectResource of projectResources">
-                <td>{{projectResource.resName}}</td>
+                <td><mat-checkbox ngDefaultControl [(ngModel)]="projectResource.checked">{{projectResource.resName}}</mat-checkbox></td>
                 <td>{{projectResource.resCode}}</td>
             </tr>
             <tr>

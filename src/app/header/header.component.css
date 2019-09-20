@@ -19,7 +19,7 @@ h1 {
 #sideLogo {
     width: 22.5vw;
     height: 100%;
-    background-color: darkorange;
+    background-color: #f16621;
     float: left;
 }
 
@@ -30,7 +30,7 @@ h1 {
     padding: 0%;
     background-color: white;
     border: 20px;
-    border-color: orange;
+    border-color: #f16621;
     border-radius: 5px 5px 5px 5px;
 }
 

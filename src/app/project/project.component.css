@@ -122,7 +122,7 @@ button {
     border-spacing: 0%;
     border-collapse: collapse;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 3vw;
 }
 
 h5,a {
@@ -144,7 +144,7 @@ a:hover,a:active {
     float: right;
     margin-right: 5%;
     margin-top: 5%;
-    background-color: darkorange;
+    background-color: #f16621;
     border-style: none;
     color: white;
 }
@@ -155,7 +155,7 @@ a:hover,a:active {
 }
 
 ::ng-deep .mat-checkbox-checked .mat-checkbox-background {
-    background-color: darkorange !important;
+    background-color: #f16621 !important;
 }
 
 mat-checkbox {
@@ -168,4 +168,28 @@ mat-checkbox {
 
 ::-webkit-scrollbar {
     width: 0%;
+}
+
+#icon1,#icon2 {
+    text-align: center !important;
+    color: white;
+    font-size: 1.5vw;
+    padding: 0.5vw;
+    background-color: #f16621;
+}
+
+#buttonSend, #buttonList {
+    float: right;
+    margin: 0%;
+}
+
+.mat-button {
+    min-width: 0px !important;
+    line-height: 100% !important;
+    width: 3vw;
+    height: 3vw;
+    margin-right: 1vw;
+    text-align: center;
+    background-color: transparent;
+    padding: 0%;
 }

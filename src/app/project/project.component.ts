@@ -1,28 +1,46 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { HttpService } from '../services/http.service';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { HttpService } from '../services/http.service'; 
+import { SimpleChanges } from '@angular/core';
+import { faShare, faList, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.css']
 })
-export class ProjectComponent implements OnInit {
+export class ProjectComponent implements OnInit, OnChanges {
 
     constructor(private httpService: HttpService){}
 
     projects: any;
     resources: any;
-    projectResources: any;
+    @Input() projectResources: any;
 
     filterValue: string = "";
     filteredProjects: any;
+
+    faShare = faShare;
+    faList = faList;
+    faTrash = faTrash;
+
+    @Input() checked: boolean = false;
 
     @Input() selectedValue: any;
 
     ngOnInit(){
         this.getAllProjects();
         this.getAllResources();
-        this.getProjectResources('1');
+    }
+
+    ngOnChanges(changes: SimpleChanges){
+        console.log("Changes!");
+        this.getProjectResources(changes.selectedValue.currentValue.projId);
+    }
+
+    setSelected(value){
+        this.selectedValue = value;
+        this.getProjectResources(this.selectedValue.projId);
+        return this.selectedValue;
     }
 
     getAllProjects(){
@@ -30,7 +48,8 @@ export class ProjectComponent implements OnInit {
             res => {
                 this.projects = res;
                 this.filteredProjects = res;
-                this.selectedValue = this.projects[0].projName;
+                this.selectedValue = this.projects[0];
+                this.getProjectResources(this.selectedValue.projId);
             }
         );
     }
@@ -43,8 +62,42 @@ export class ProjectComponent implements OnInit {
 
     getProjectResources(projId:string){
         this.httpService.getProjectResources(projId).subscribe(
-            res => {this.projectResources = res;}
+            res => {this.projectResources = res;},
+            () => {},
+            () => {console.log(this.projectResources)}
         );
+    }
+
+    postResourceToProject(projId:string){
+        this.resources.forEach(element => {
+            if(element.checked == true){
+                this.httpService.postResourceToProject(projId,element.resId).subscribe(
+                    res => {}
+                )
+            }
+        });
+        this.getProjectResources(projId);
+    }
+
+    deleteResourceFromProject(projId:string){
+        this.projectResources.forEach(element => {
+            if(element.checked == true){
+                this.httpService.deleteResourceFromProject(projId, element.resId).subscribe();
+            }
+        });
+        this.getProjectResources(projId);
+    }
+
+    selectAll(){
+        this.resources.forEach(element => {
+            element.checked = true;
+        });
+    }
+
+    clearAll(){
+        this.resources.forEach(element => {
+            element.checked = false;
+        });
     }
 
     filter(value: string) {

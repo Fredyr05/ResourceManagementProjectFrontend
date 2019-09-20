@@ -1,21 +1,31 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams  } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 
 export class HttpService {
     constructor(private http: HttpClient){}
+    
+    url = 'http://localhost:8080/RMP';
 
     getAllProjects(){
-        return this.http.get('http://localhost:8080/RMP/project');
+        return this.http.get(this.url + '/project');
     }
 
     getAllResources(){
-        return this.http.get('http://localhost:8080/RMP/resource');
+        return this.http.get(this.url + '/resource');
     }
 
     getProjectResources(projId:string){
-        return this.http.get('http://localhost:8080/RMP/project/' + projId + '/resources');
+        return this.http.get(this.url + '/project/' + projId + '/resources');
+    }
+
+    postResourceToProject(projId:string, resId:string){
+        return this.http.post(this.url + '/project/' + projId + '/resource/' + resId, {header:{}});
+    }
+
+    deleteResourceFromProject(projId:string, resId:string){
+        return this.http.delete(this.url + '/project/' + projId + '/resource/' + resId);
     }
     
 }
