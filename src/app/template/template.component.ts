@@ -1,35 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
   styleUrls: ['./template.component.css']
 })
 export class TemplateComponent implements OnInit {
-  columnForm: FormGroup;
-  cols: FormArray;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor() { }
+  columns: [{colId: number, colName: string, type: string, formula: string}] = [{colId: null, colName: '', type: 'Number', formula: ''}];
 
   ngOnInit() {
-    this.columnForm = this.formBuilder.group({
-      columns: this.formBuilder.array([this.createRow()])
-    });
-    this.cols = this.columnForm.controls.columns as FormArray;
-  }
-  createRow(): FormGroup {
-    return this.formBuilder.group({
-                name: '',
-                description: ''
-    });
-
   }
   addRow(): void {
-    this.cols = this.columnForm.controls.columns as FormArray;
-    this.cols.push(this.createRow());
+    this.columns.push({colId: null, colName: '', type: '', formula: ''})
   }
   deleteRow(index: number): void {
-    this.cols = this.columnForm.controls.columns as FormArray;
-    this.cols.removeAt(index);
+    this.columns.splice(index, 1);
+  }
+  isFormula(index: number): boolean {
+// if (this.columns[index].type === 'Formula'){
+//   return false;
+// } else {
+//   return true;
+// }
+return true;
   }
 }
 

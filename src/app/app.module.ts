@@ -33,6 +33,8 @@ import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
 import {CheckboxModule} from 'primeng/checkbox';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +72,8 @@ import {CheckboxModule} from 'primeng/checkbox';
     TableModule,
     ToolbarModule,
     CheckboxModule,
-    ButtonModule
+    ButtonModule,
+     FormsModule
 
 
 
