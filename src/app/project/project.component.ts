@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpService } from '../services/http.service';
 
 @Component({
@@ -6,21 +6,32 @@ import { HttpService } from '../services/http.service';
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.css']
 })
-export class ProjectComponent implements OnInit{
+export class ProjectComponent implements OnInit {
 
     constructor(private httpService: HttpService){}
 
     projects: any;
     resources: any;
+    projectResources: any;
+
+    filterValue: string = "";
+    filteredProjects: any;
+
+    @Input() selectedValue: any;
 
     ngOnInit(){
         this.getAllProjects();
         this.getAllResources();
+        this.getProjectResources('1');
     }
 
     getAllProjects(){
         this.httpService.getAllProjects().subscribe(
-            res => {this.projects = res;}
+            res => {
+                this.projects = res;
+                this.filteredProjects = res;
+                this.selectedValue = this.projects[0].projName;
+            }
         );
     }
 
@@ -30,20 +41,24 @@ export class ProjectComponent implements OnInit{
         );
     }
 
-    filter() {
-        let input, filter, select, options, option, txtValue;
-        input = document.getElementById("search");
-        filter = input.value.toUpperCase();
-        select = document.getElementById("select");
-        options = select.getElementsByTagName("mat-option");
-        for (let i = 0; i < options.length; i++) {
-            option = options[i];
+    getProjectResources(projId:string){
+        this.httpService.getProjectResources(projId).subscribe(
+            res => {this.projectResources = res;}
+        );
+    }
+
+    filter(value: string) {
+        value = value.toUpperCase();
+        console.log(value);
+        let options = document.getElementsByTagName("mat-option");
+        for (let i = 1; i < options.length; i++) {
+            let option = options[i];
             if (option) {
-                txtValue = option.textContent || option.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    options[i].style.display = "";
+                let txtValue = option.textContent || (<HTMLElement>option).innerText;
+                if (txtValue.trim().toUpperCase().indexOf(value) > -1) {
+                    (<HTMLElement>options[i]).style.display = "";
                 } else {
-                    options[i].style.display = "none";
+                    (<HTMLElement>options[i]).style.display = "none";
                 }
             }       
         }

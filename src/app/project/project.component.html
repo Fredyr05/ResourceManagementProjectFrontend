@@ -1,47 +1,57 @@
-<mat-form-field>
-    <mat-select disableOptionCentering panelClass="myPanelClass" [value]="selected">
-        <mat-option disabled><input type="text" id="search" onkeyup="filter()" placeholder="Search for project.." title="Type in a project name"/></mat-option>
-        <mat-option *ngFor="let project of projects" [attr.id]="project.projId" [value]="project.projName">
+<mat-form-field *ngIf="projects != undefined">
+    <mat-select id="select" disableOptionCentering [(ngModel)]="selectedValue" panelClass="myPanelClass">
+        <mat-option disabled><input type="text" id="search" (keyup)="filter($event.target.value)" placeholder="Search for project.." title="Type in a project name"/></mat-option>
+        <mat-option *ngFor="let project of filteredProjects" [attr.id]="project.projId" [value]="project.projName">
             {{project.projName}}
         </mat-option>
     </mat-select>
 </mat-form-field>
 <br><br>
 <div id="resourceTable">
+    <div id="scroll">
     <table id="rTable">
-        <tbody>
+        <tbody id="rBody">
             <tr>
                 <td class="title" colspan="2">Resource Catalog</td>
             </tr>
             <tr>
-                <!--<td class="colName" *ngFor="let resource of resources">{{resource.resName}}</td>-->
                 <td class="colName">PROJECT NAME</td>
                 <td class="colName">PROJECT CODE</td>
             </tr>
             <tr *ngFor="let resource of resources">
-                <td>{{resource.resName}}</td>
+                <td><mat-checkbox>{{resource.resName}}</mat-checkbox></td>
                 <td>{{resource.resCode}}</td>
+            </tr>
+            <tr>
+                <td id="filler"></td>
+                <td></td>
             </tr>
         </tbody>
     </table>
+    </div>
     <a href="/resource"><h5>Edit Resource</h5></a>
 </div>
 <div id="projectTable">
+    <div id="scroll">
     <table id="pTable">
-        <tbody>
+        <tbody id="pBody">
             <tr>
                 <td class="title" colspan="2">Project</td>
             </tr>
             <tr>
-                <!--<td class="colName" *ngFor="let resource of resources">{{resource.resName}}</td>-->
                 <td class="colName">PROJECT NAME</td>
                 <td class="colName">PROJECT CODE</td>
             </tr>
-            <tr *ngFor="let resource of resources">
-                <td>{{resource.resName}}</td>
-                <td>{{resource.resCode}}</td>
+            <tr *ngFor="let projectResource of projectResources">
+                <td>{{projectResource.resName}}</td>
+                <td>{{projectResource.resCode}}</td>
+            </tr>
+            <tr>
+                <td id="filler"></td>
+                <td></td>
             </tr>
         </tbody>
     </table>
+    </div>
     <button id="submit">&#10004; Submit</button>
 </div>
