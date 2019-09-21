@@ -2,7 +2,20 @@
     <table>
         <thead>
             <tr>
-                <td class="title" colspan="2">Resource Catalog</td>
+                <td class="title" colspan="2">
+                    <input type="text" id="search" [(ngModel)]="filterValue" placeholder="Keyword" title="Type in a resource name"/>
+                    <fa-icon [icon]="faSearch" (click)="filter()"></fa-icon>
+                    Resource Catalog
+                    <button id="buttonList" mat-button [matMenuTriggerFor]="menuList"><fa-icon id="plus" [icon]="faPlus"></fa-icon></button>
+                    <mat-menu #menuList="matMenu">
+                        <button mat-menu-item ngDefaultControl [(ngModel)]="checked" (click)="selectAll()">
+                            <fa-icon class="plusIcons" [icon]="faBars"></fa-icon>Add Row</button>
+                        <button mat-menu-item ngDefaultControl [(ngModel)]="checked" (click)="clearAll()">
+                            <fa-icon class="plusIcons" [icon]="faColumns"></fa-icon>Add Column</button>
+                        <button mat-menu-item ngDefaultControl [(ngModel)]="checked" (click)="clearAll()">
+                            <fa-icon class="plusIcons" [icon]="faFileCsv"></fa-icon>Import CSV</button>
+                    </mat-menu>
+                </td>
             </tr>
             <tr>
                 <td class="colName">RESOURCE NAME</td>
@@ -10,10 +23,12 @@
             </tr>
         </thead>
         <tbody>
+            <div id="bodySearch">
             <tr *ngFor="let resource of resources">
                 <td>{{resource.resName}}</td>
                 <td>{{resource.resCode}}</td>
             </tr>
+            </div>
             <tr>
                 <td id="filler"></td>
                 <td></td>

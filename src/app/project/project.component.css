@@ -60,6 +60,7 @@ mat-option {
     border-color: #C0C0C0;
     border-width: thin;
     height: 30px;
+    font-weight: bold;
 }
 
 #resourceTable {
@@ -85,7 +86,6 @@ mat-option {
 }
 
 #scroll {
-    overflow-y: auto;
     height: 100%;
 }
 
@@ -199,4 +199,18 @@ mat-checkbox {
     text-align: center;
     background-color: transparent;
     padding: 0%;
+}
+
+::ng-deep .mat-menu-panel {
+    border-radius: 0% !important;
+}
+
+::ng-deep .mat-menu-content {
+    padding: 0% !important;
+}
+
+::ng-deep button.mat-menu-item {
+    margin: 0%;
+    padding-left: 0%;
+    color: gray;
 }

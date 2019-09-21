@@ -17,8 +17,8 @@
                 <button id="buttonSend" mat-button (click)="addToProjectResources()"><fa-icon id="icon1" [icon]="faShare"></fa-icon></button>
                 <button id="buttonList" mat-button [matMenuTriggerFor]="menuList"><fa-icon id="icon2" [icon]="faList"></fa-icon></button>
                 <mat-menu #menuList="matMenu">
-                    <button mat-menu-item ngDefaultControl [(ngModel)]="checked" (click)="selectAll()">Select All</button>
-                    <button mat-menu-item ngDefaultControl [(ngModel)]="checked" (click)="clearAll()">Clear Selection</button>
+                    <button mat-menu-item ngDefaultControl [(ngModel)]="checked" (click)="selectAll()"><input id="selectAll" type="checkbox"/>Select All</button>
+                    <button mat-menu-item ngDefaultControl [(ngModel)]="checked" (click)="clearAll()"><input id="clearAll" type="checkbox"/>Clear Selection</button>
                 </mat-menu>
                 </td>
             </tr>
