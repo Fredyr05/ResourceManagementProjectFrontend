@@ -13,11 +13,7 @@
         <tbody id="rBody">
             <tr>
                 <td class="title" colspan="2">Resource Catalog 
-                <button id="buttonSend" mat-button (click)="postResourceToProject(selectedValue.projId)"><fa-icon id="icon1" [icon]="faShare"></fa-icon></button>
-                <!--<mat-menu #menuSend="matMenu">
-                    <button mat-menu-item>Item 1</button>
-                    <button mat-menu-item>Item 2</button>
-                </mat-menu>-->
+                <button id="buttonSend" mat-button (click)="addToProjectResources()"><fa-icon id="icon1" [icon]="faShare"></fa-icon></button>
                 <button id="buttonList" mat-button [matMenuTriggerFor]="menuList"><fa-icon id="icon2" [icon]="faList"></fa-icon></button>
                 <mat-menu #menuList="matMenu">
                     <button mat-menu-item ngDefaultControl [(ngModel)]="checked" (click)="selectAll()">Select All</button>
@@ -47,13 +43,13 @@
     <table id="pTable">
         <tbody id="pBody" *ngIf="selectedValue != undefined">
             <tr>
-                <td class="title" colspan="2">{{selectedValue.projName}} <button id="buttonSend" mat-button (click)="deleteResourceFromProject(selectedValue.projId)"><fa-icon id="icon1" [icon]="faTrash"></fa-icon></button></td>
+                <td class="title" colspan="2">{{selectedValue.projName}} <button id="buttonSend" mat-button (click)="removeFromProjectResources()"><fa-icon id="icon1" [icon]="faTrash"></fa-icon></button></td>
             </tr>
             <tr>
                 <td class="colName">PROJECT NAME</td>
                 <td class="colName">PROJECT CODE</td>
             </tr>
-            <tr *ngFor="let projectResource of projectResources">
+            <tr *ngFor="let projectResource of projectResources" (ngModelChange)="addToProjectResources()">
                 <td><mat-checkbox ngDefaultControl [(ngModel)]="projectResource.checked">{{projectResource.resName}}</mat-checkbox></td>
                 <td>{{projectResource.resCode}}</td>
             </tr>
@@ -64,5 +60,5 @@
         </tbody>
     </table>
     </div>
-    <button id="submit">&#10004; Submit</button>
+    <button id="submit" (click)="deleteAndPost(selectedValue.projId)">&#10004; Submit</button>
 </div>
