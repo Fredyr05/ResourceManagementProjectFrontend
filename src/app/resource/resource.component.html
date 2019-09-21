@@ -1,7 +1,23 @@
 <div id="resourcePage">
     <table>
-        <tr>
-            <td>Resource Catalog</td>
-        </tr>
+        <thead>
+            <tr>
+                <td class="title" colspan="2">Resource Catalog</td>
+            </tr>
+            <tr>
+                <td class="colName">RESOURCE NAME</td>
+                <td class="colName">RESOURCE CODE</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let resource of resources">
+                <td>{{resource.resName}}</td>
+                <td>{{resource.resCode}}</td>
+            </tr>
+            <tr>
+                <td id="filler"></td>
+                <td></td>
+            </tr>
+        </tbody>
     </table>
 </div>

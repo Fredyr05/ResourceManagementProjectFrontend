@@ -15,7 +15,9 @@ button {
     border-radius: 0px 5px 5px 0px;
     border: none;
     height: 8%;
-    width: 4vw;
+    width: 4%;
+    float: left;
+    margin-right: 0%;
 }
 a:link,a:visited {
     text-align: left;

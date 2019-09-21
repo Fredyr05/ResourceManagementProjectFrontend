@@ -1,3 +1,4 @@
+<div id="projectContent">
 <mat-form-field *ngIf="projects != undefined">
     <mat-select id="select" disableOptionCentering [(ngModel)]="selectedValue" panelClass="myPanelClass" (ngModelChange)="setSelected(selectedValue)">
         <mat-option disabled><input type="text" id="search" (keyup)="filter($event.target.value)" placeholder="Search for project.." title="Type in a project name"/></mat-option>
@@ -61,4 +62,5 @@
     </table>
     </div>
     <button id="submit" (click)="deleteAndPost(selectedValue.projId)">&#10004; Submit</button>
+</div>
 </div>
