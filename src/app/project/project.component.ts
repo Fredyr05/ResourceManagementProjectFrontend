@@ -21,6 +21,9 @@ export class ProjectComponent implements OnInit, OnChanges {
     filterValue: string = "";
     filteredProjects: any;
 
+    @Input() selectAllCheck: boolean = false;
+    @Input() clearAllCheck: boolean = false;
+
     faShare = faShare;
     faList = faList;
     faTrash = faTrash;
@@ -118,12 +121,16 @@ export class ProjectComponent implements OnInit, OnChanges {
     }
 
     selectAll(){
+        (<HTMLInputElement>document.getElementById("selectAll")).checked = true;
+        (<HTMLInputElement>document.getElementById("clearAll")).checked = false;
         this.resources.forEach(element => {
             element.checked = true;
         });
     }
 
     clearAll(){
+        (<HTMLInputElement>document.getElementById("clearAll")).checked = true;
+        (<HTMLInputElement>document.getElementById("selectAll")).checked = false;
         this.resources.forEach(element => {
             element.checked = false;
         });
