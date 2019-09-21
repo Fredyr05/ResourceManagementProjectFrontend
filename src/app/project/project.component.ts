@@ -16,6 +16,8 @@ export class ProjectComponent implements OnInit, OnChanges {
     resources: any;
     @Input() projectResources: any;
 
+    resRemovedFromProj = [];
+
     filterValue: string = "";
     filteredProjects: any;
 
@@ -33,7 +35,6 @@ export class ProjectComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges){
-        console.log("Changes!");
         this.getProjectResources(changes.selectedValue.currentValue.projId);
     }
 
@@ -62,30 +63,58 @@ export class ProjectComponent implements OnInit, OnChanges {
 
     getProjectResources(projId:string){
         this.httpService.getProjectResources(projId).subscribe(
-            res => {this.projectResources = res;},
-            () => {},
-            () => {console.log(this.projectResources)}
+            res => {this.projectResources = res;}
         );
     }
 
     postResourceToProject(projId:string){
+        this.projectResources.forEach(element => {
+            this.httpService.postResourceToProject(projId,element.resId).subscribe(
+                res => {}
+            )
+        });
+    }
+
+    addToProjectResources(){
         this.resources.forEach(element => {
-            if(element.checked == true){
-                this.httpService.postResourceToProject(projId,element.resId).subscribe(
-                    res => {}
-                )
+            if(element.checked == true && !this.isResourceInProject(element)){
+                let temp: any = {};
+                temp.resId = element.resId;
+                temp.resName = element.resName;
+                this.projectResources.push(temp);
             }
         });
-        this.getProjectResources(projId);
+    }
+
+    isResourceInProject(resource){
+        let inProject: boolean = false;
+        this.projectResources.forEach(element => {
+            if(resource.resId == element.resId){
+                inProject =  true;
+            }
+        });
+        return inProject;
+    }
+
+    removeFromProjectResources(){
+        for(let i = 0; i < this.projectResources.length; i++){
+            if(this.projectResources[i].checked == true){
+                this.resRemovedFromProj.push(this.projectResources[i]);
+                this.projectResources.splice(i,1);
+                i--;
+            }
+        }
     }
 
     deleteResourceFromProject(projId:string){
-        this.projectResources.forEach(element => {
-            if(element.checked == true){
-                this.httpService.deleteResourceFromProject(projId, element.resId).subscribe();
-            }
+        this.resRemovedFromProj.forEach(element => {
+            this.httpService.deleteResourceFromProject(projId, element.resId).subscribe();
         });
-        this.getProjectResources(projId);
+    }
+
+    deleteAndPost(projId:string){
+        this.deleteResourceFromProject(projId);
+        this.postResourceToProject(projId);
     }
 
     selectAll(){
@@ -102,7 +131,6 @@ export class ProjectComponent implements OnInit, OnChanges {
 
     filter(value: string) {
         value = value.toUpperCase();
-        console.log(value);
         let options = document.getElementsByTagName("mat-option");
         for (let i = 1; i < options.length; i++) {
             let option = options[i];
