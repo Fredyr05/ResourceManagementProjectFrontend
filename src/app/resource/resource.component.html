@@ -1,38 +1,52 @@
 <div id="resourcePage">
     <table>
-        <thead>
+        <thead *ngIf="columns != undefined">
             <tr>
-                <td class="title" colspan="2">
+                <td class="title" [attr.colspan]="colLength">
                     <input type="text" id="search" [(ngModel)]="filterValue" placeholder="Keyword" title="Type in a resource name"/>
                     <fa-icon [icon]="faSearch" (click)="filter()"></fa-icon>
                     Resource Catalog
                     <button id="buttonList" mat-button [matMenuTriggerFor]="menuList"><fa-icon id="plus" [icon]="faPlus"></fa-icon></button>
                     <mat-menu #menuList="matMenu">
-                        <button mat-menu-item ngDefaultControl [(ngModel)]="checked" (click)="selectAll()">
+                        <button mat-menu-item ngDefaultControl [(ngModel)]="checked" (click)="showAddRow()">
                             <fa-icon class="plusIcons" [icon]="faBars"></fa-icon>Add Row</button>
-                        <button mat-menu-item ngDefaultControl [(ngModel)]="checked" (click)="clearAll()">
+                        <button mat-menu-item ngDefaultControl [(ngModel)]="checked" (click)="addColumn()">
                             <fa-icon class="plusIcons" [icon]="faColumns"></fa-icon>Add Column</button>
-                        <button mat-menu-item ngDefaultControl [(ngModel)]="checked" (click)="clearAll()">
-                            <fa-icon class="plusIcons" [icon]="faFileCsv"></fa-icon>Import CSV</button>
+                        <button mat-menu-item ngDefaultControl [(ngModel)]="checked">
+                            <input id="file" name="file" type="file" accept=".csv" (change)="importCSV($event.target.files)"/>
+                            <label for="file">
+                                    <div id="import"><fa-icon class="plusIcons" [icon]="faFileCsv"></fa-icon>Import CSV </div>
+                            </label>
+                            </button>
                     </mat-menu>
                 </td>
             </tr>
             <tr>
-                <td class="colName">RESOURCE NAME</td>
-                <td class="colName">RESOURCE CODE</td>
+                <div id="columnsId" *ngFor="let column of columns; let i=index">
+                    <td class="colName" *ngIf="i > 0">{{column}}</td>
+                </div>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="tableBody">
             <div id="bodySearch">
-            <tr *ngFor="let resource of resources">
-                <td>{{resource.resName}}</td>
-                <td>{{resource.resCode}}</td>
+            <tr *ngFor="let resource of (resources | slice: lowValue : highValue)">
+                <div id="columnsId" *ngFor="let key of columns; let i=index">
+                    <td *ngIf="i > 0">{{resource[key]}}</td>
+                </div>
             </tr>
             </div>
+            <tr *ngIf="addRowBool == true">
+                <td><input id="col1" class="orangeBorder" type="text"/></td>
+                <td>
+                    <fa-icon id="add" [icon]="faCheckCircle" (click)="addRowToDatabase()"></fa-icon>
+                    <fa-icon id="cancel" [icon]="faTimesCircle" (click)="showAddRow()"></fa-icon>
+                    <input id="col2" class="orangeBorder" type="text"/></td>
+            </tr>
             <tr>
                 <td id="filler"></td>
                 <td></td>
             </tr>
         </tbody>
     </table>
+    <mat-paginator *ngIf="resources != undefined" [length]="resources.length" [pageSizeOptions]="[5, 10, 20]" pageSize=20 (page)="getPaginatorData($event)"></mat-paginator>
 </div>
