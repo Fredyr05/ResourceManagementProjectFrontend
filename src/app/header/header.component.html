@@ -15,7 +15,19 @@
     <div id="righSideOfHeader">
         <fa-icon id="icon2" [icon]="faQuestionCircle"></fa-icon>
         <h2>Cost Manager</h2>
-        <fa-icon id="icon1" [icon]="faUserCircle"></fa-icon>
+        <fa-icon id="icon1" [icon]="faUserCircle" mat-button [matMenuTriggerFor]="menuList">
+            <mat-menu #menuList="matMenu">
+            <div mat-menu-item id="userInfo">
+                <p id="userInfoTitle">Cost Manager</p>
+                <p>Member since</p>
+                <p>November-2015</p>
+            </div>
+            <div id="userButtons" mat-menu-item>
+                    <button id="profileButton" ngDefaultControl>Profile</button>
+                    <button id="signOutButton" ngDefaultControl (click)="signOut()">Sign Out</button>
+            </div>
+        </mat-menu>
+        </fa-icon>
     </div>
     <div id="centerHeader">
         <h1>Project 1</h1>

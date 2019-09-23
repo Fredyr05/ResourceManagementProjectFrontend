@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 export class SignupService {
     constructor(private http: HttpClient){}
     
-    url = 'http://localhost:19090/RMP';
+    url = 'http://localhost:8080/RMP';
 
     getAllUsers(){
         return this.http.get(this.url + '/user');

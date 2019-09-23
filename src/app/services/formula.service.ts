@@ -8,7 +8,7 @@ export class FormulaService {
 
   constructor(private http: HttpClient) { }
       getAllProjects(){
-        return this.http.get('http://localhost:19090/RMP/project/1/template/columns');
+        return this.http.get('http://localhost:8080/RMP/project/1/template/columns');
     }
 
 }

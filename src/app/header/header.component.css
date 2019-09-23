@@ -78,3 +78,47 @@ h2 {
     float: right;
     padding-right: 3vw;
 }
+
+#userInfo {
+    background-color: black;
+    color: white;
+    padding-top: 15px;
+    height: 100px;
+    text-align: center;
+}
+
+#userButtons {
+    background-color: gray;
+    padding: 0%;
+}
+
+#profileButton{
+    text-align: left;
+    margin-right: 40px;
+    margin-left: 10px;
+    margin-top: 13px;
+    background-color: lightgray;
+    border-style: solid;
+    border-color: lightgray;
+    color: black;
+}
+
+#signOutButton {
+    text-align: right;
+    margin-right: 10px;
+    margin-left: 40px;
+    background-color: lightgray;
+    border-style: solid;
+    border-color: lightgray;
+    color: black;
+}
+
+#userInfoTitle {
+    font-size: 150%;
+    margin-bottom: 5px;
+}
+
+p {
+    height: 20px;
+    margin: 0%;
+}
