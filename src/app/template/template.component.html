@@ -2,7 +2,12 @@
 <div class="main-panel">
 	<div class="left-panel">
 		<p class="title"> Project Scope Fields</p>
-		
+		<form>
+			<div [ngStyle]="{'margin-top':'-1px','background': i%2===0 ? '#fafafa' : '#f0f0f0'}" *ngFor="let visiable of visiables; let i = index">
+				<div class="checkleft">{{visiable.name}}</div>
+				<div class="checkright"><input type="checkbox" [(ngModel)]="visiable.visibility" name="visibility{{i}}"></div>
+			</div>
+		</form>
 	</div>
 	<div class="right-panel">
 		<p class="title"> Quantity Survey Fields</p>
@@ -10,23 +15,24 @@
 			
 			<div *ngFor="let column of columns; let i = index">
 					<div class="input">
-						
 						Field<br>
-						<input [(ngModel)]="column.name">
+						<input [(ngModel)] = "column.colName" name="name{{i}}">
 					</div>
 					<div class="input">
 						Type<br>
-						<select style="border-radius:3px" [(ngModel)]="column.type">
+						<select style="border-radius:3px" [(ngModel)]="column.type" name="type{{i}}">
 							<option> Number </option>
                     		<option> Text </option>
                     		<option> Formula </option>
 						</select>
 					</div>
-					<div class="input">
+					<div [ngStyle]="{'visibility':isFormula(i) ? 'hidden': ''}" class="input">
 						Formula<br>
-						<input [disabled]="isFormula(i)" [(ngModel)]="column.formula">
+						<input [disabled] = "isFormula(i)" [(ngModel)]="column.equation" name="nmae{{i}}">
 					</div>
-					<button class="fa fa-trash" (click)="deleteRow(i)"></button>
+					<div class="delete">
+					<button class="fa fa-trash" (mouseup)="deleteRow(i)"></button>
+					</div>
 					
 			</div>
 			  
@@ -35,10 +41,11 @@
 		<p style="display: inline-block; margin:0;padding-right:5px;">Add Field</p> <button class="fa fa-plus" (click)="addRow()"></button>
 		</div>
 	</div>
-</div>
-<div class="bot-bar">
+	<div class="bot-bar">	
+	</div>
 	
 </div>
 <div class="bot">
-	<button class="save">Save</button>
+	<button class="save" (mouseup)="saveAll()">Save</button>
 </div>
+

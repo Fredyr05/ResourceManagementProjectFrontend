@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TableModule} from 'primeng/table';
+import { FormulaService } from '../services/formula.service';
 @Component({
   selector: 'app-formula',
   templateUrl: './formula.component.html',
@@ -12,7 +13,7 @@ export class FormulaComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+            
     this.cols = [
             { field: 'vin', header: 'Vin' },
             {field: 'year', header: 'Year' }

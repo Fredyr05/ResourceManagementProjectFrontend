@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 export class HttpService {
     constructor(private http: HttpClient){}
     
-    url = 'http://localhost:8080/RMP';
+    url = 'http://localhost:19090/RMP';
 
     postNewResource(resource){
         return this.http.post(this.url + '/resource', resource);
@@ -31,5 +31,13 @@ export class HttpService {
     deleteResourceFromProject(projId:string, resId:string){
         return this.http.delete(this.url + '/project/' + projId + '/resource/' + resId);
     }
-    
+
+    getAllColumns(projId:string){
+        return this.http.get(this.url + '/project/' + projId +'/template/columns');
+    }
+
+    postAllColumns(projId:string, columns:any){
+        return this.http.post(this.url + '/project/' + projId +'/template/columns',columns);
+    }
+
 }
