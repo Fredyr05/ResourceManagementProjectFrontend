@@ -2,33 +2,35 @@
     <div class="signup-header">
         <h2>Sign up</h2>
     </div>
-    <div class="form-container">
-        <div class="field-container">
-                <h3>Username</h3>
-                <mat-form-field class="input-container" appearance="fill">
-                    <input matInput type="text" placeholder="Enter a Username">
-                </mat-form-field>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="form-container">
+            <div class="field-container">
+                    <h3>Username</h3>
+                    <mat-form-field class="input-container" appearance="fill">
+                        <input matInput type="text" placeholder="Enter a Username" formControlName="username">
+                    </mat-form-field>
+            </div>
+            <div class="field-container">
+                    <h3>Email</h3>
+                    <mat-form-field class="input-container" appearance="fill">
+                        <input matInput type="email" placeholder="Enter Email" formControlName="email">
+                    </mat-form-field>
+            </div>
+            <br>
+            <div class="field-container">
+                    <h3>Password</h3>
+                    <mat-form-field class="input-container" appearance="fill">
+                        <input matInput type="password" placeholder="Enter a Password" formControlName="password">
+                    </mat-form-field>
+            </div>
+            <div class="field-container">
+                    <h3>Re-enter Password</h3>
+                    <mat-form-field class="input-container" appearance="fill">
+                            <input matInput type="password" placeholder="Re-enter password" formControlName="passConfirm">
+                    </mat-form-field>
+            </div>
+            <button class="submit-btn" mat-raised-button>Submit</button>
+    
         </div>
-        <div class="field-container">
-                <h3>Email</h3>
-                <mat-form-field class="input-container" appearance="fill">
-                    <input matInput type="email" placeholder="Enter Email">
-                </mat-form-field>
-        </div>
-        <br>
-        <div class="field-container">
-                <h3>Password</h3>
-                <mat-form-field class="input-container" appearance="fill">
-                    <input matInput type="password" placeholder="Enter a Password">
-                </mat-form-field>
-        </div>
-        <div class="field-container">
-                <h3>Re-enter Password</h3>
-                <mat-form-field class="input-container" appearance="fill">
-                        <input matInput type="password" placeholder="Re-enter password">
-                </mat-form-field>
-        </div>
-        <button class="submit-btn" mat-raised-button (click)="submitClick()">Submit</button>
-
-    </div>
+    </form>
 </div>

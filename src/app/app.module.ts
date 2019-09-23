@@ -36,6 +36,7 @@ import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
 import {CheckboxModule} from 'primeng/checkbox';
 import { HttpService } from './services/http.service';
+import { SignupService } from './services/signup.service';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,7 @@ import { HttpService } from './services/http.service';
     FormsModule,
     MatMenuModule
   ],
-  providers: [HttpService],
+  providers: [HttpService,SignupService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
