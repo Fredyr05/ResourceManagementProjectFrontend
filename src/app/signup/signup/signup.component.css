@@ -5,10 +5,15 @@
 }
 
 .signup-container{
-    margin: 1em;
     /* display: inline-block; */
     float: right;
     margin-right: 40%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar{
+    width: 0%;
 }
 .signup-header{
     text-align: center;
