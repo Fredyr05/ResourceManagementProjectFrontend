@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 export class HttpService {
     constructor(private http: HttpClient){}
     
-    url = 'http://localhost:8080/RMP';
+    url = 'http://localhost:19090/RMP';
 
     postNewResource(resource){
         return this.http.post(this.url + '/resource', resource);

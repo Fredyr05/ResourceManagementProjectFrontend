@@ -4,10 +4,15 @@
     box-sizing: border-box;
 }
 .login-container{
-    margin: 1em;
     /* display: inline-block; */
     float: right;
     margin-right: 40%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar{
+    width: 0%;
 }
 
 .login-header{

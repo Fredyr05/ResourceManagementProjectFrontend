@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { SignupService } from 'src/app/services/signup.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -9,7 +10,7 @@ import { SignupService } from 'src/app/services/signup.service';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private signupService:SignupService){}
+  constructor(private signupService:SignupService,private router:Router){}
 
   model:UserModel = {
     username:'',
@@ -38,7 +39,11 @@ export class SignupComponent implements OnInit {
 
     if(this.model.password == this.signupForm.value.passConfirm){
       this.signupService.postNewUser(this.model).subscribe(
-        res=>{console.log(res)}
+        res=>{
+          if(res){
+            this.router.navigate(['/login'])
+          }
+        }
       );
     }
     else{
