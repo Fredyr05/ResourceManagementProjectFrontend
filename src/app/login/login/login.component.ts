@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { SignupService } from 'src/app/services/signup.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,35 +10,55 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup;
+  model:UserModel = {
+    username:'',
+    password:'',
+    email:''
+  };
 
-  constructor(private fb: FormBuilder) { }
+  loginForm = new FormGroup({
+    username:new FormControl(''),
+    password: new FormControl('')
+  });
+
+  constructor(private signupService: SignupService,private router:Router) { }
 
   ngOnInit() {
 
-    this.loginForm = this.fb.group({
-      username: ['',
-      [Validators.required, Validators.minLength(3)]],
-      password:['',
-      [Validators.required,Validators.minLength(5)]],
-      checkbox: false
-    });
+    // this.loginForm = this.fb.group({
+    //   username: ['',
+    //   [Validators.required, Validators.minLength(3)]],
+    //   password:['',
+    //   [Validators.required,Validators.minLength(5)]],
+    //   checkbox: false
+    // });
 
-    this.loginForm.valueChanges.subscribe(console.log);
+    // this.loginForm.valueChanges.subscribe(console.log);
   }
 
   loginClick(){
-    console.log(this.loginForm.value);
+    this.model.username = this.loginForm.value.username;
+    this.model.password = this.loginForm.value.password;
+    console.log(this.model);
+    this.signupService.getUser(this.model).subscribe(
+      (res:any)=>{
+        console.log(res);
+        if(res.password=="true"){
+            // console.log('Yess');
+            this.router.navigate(['/resource'])
+        }
+        else{
+          console.log('nope');
+        }
+      }
+
+    );
   }
+}
 
-  get username(){
-    return this.loginForm.get('username');
-  }
-
-  get password(){
-    return this.loginForm.get('password');
-  }
-
-
+export interface UserModel{
+  username:string;
+  email:string;
+  password:string;
 
 }

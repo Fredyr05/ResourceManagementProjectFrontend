@@ -12,6 +12,10 @@ export class SignupService {
         return this.http.get(this.url + '/user');
     }
 
+    getUser(user){
+        return this.http.post(this.url + '/login',user);
+    }
+
     postNewUser(user){
         return this.http.post(this.url + '/user', user);
     }
