@@ -8,6 +8,10 @@ export class HttpService {
     
     url = 'http://localhost:8080/RMP';
 
+    postNewResource(resource){
+        return this.http.post(this.url + '/resource', resource);
+    }
+
     getAllProjects(){
         return this.http.get(this.url + '/project');
     }
