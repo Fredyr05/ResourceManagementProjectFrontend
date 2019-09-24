@@ -31,6 +31,7 @@ export class ResourceComponent implements OnInit{
 
   ngOnInit(){
     if(localStorage.getItem("login") != "allowed"){
+      this.httpService.setTitle("");
       this.router.navigate(['/login']);
     }
     this.getAllResources();

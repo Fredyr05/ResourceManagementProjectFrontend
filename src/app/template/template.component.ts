@@ -3,6 +3,7 @@ import { HttpService } from '../services/http.service';
 import { column } from './column';
 import { FormulaService } from '../services/formula.service';
 import { forkJoin } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-template',
@@ -10,12 +11,16 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./template.component.css']
 })
 export class TemplateComponent implements OnInit {
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService, private router:Router) { }
   columns: column[];
   formulas:{columns:{"colId":Number},equation:string}[]=[];
   projectId: string = '1';
   visiables: {name: string, visibility:boolean}[]=[{name:'resId', visibility:false},{name:'cost_code', visibility:false},{name:'editable', visibility:false},{name:'item_id', visibility:false}];
   ngOnInit() {
+    if(localStorage.getItem("login") != "allowed"){
+      this.http.setTitle("");
+      this.router.navigate(['/login']);
+    }
     this.http.getAllColumns(this.projectId).subscribe(
             (res:column[]) => {
                 this.columns =res;

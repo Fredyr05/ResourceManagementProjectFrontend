@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { SignupService } from 'src/app/services/signup.service';
 import { Router } from '@angular/router';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, DoCheck {
 
   model:UserModel = {
     username:'',
@@ -21,10 +22,9 @@ export class LoginComponent implements OnInit {
     password: new FormControl('',[Validators.required,Validators.minLength(4)])
   });
 
-  constructor(private signupService: SignupService,private router:Router) { }
+  constructor(private signupService: SignupService,private router:Router, private httpService: HttpService) { }
 
   ngOnInit() {
-    
     // this.loginForm = this.fb.group({
     //   username: ['',
     //   [Validators.required, Validators.minLength(3)]],
@@ -34,6 +34,12 @@ export class LoginComponent implements OnInit {
     // });
 
     // this.loginForm.valueChanges.subscribe(console.log);
+  }
+
+  ngDoCheck(){
+    if(this.httpService.getTitle() != ""){
+      this.httpService.setTitle("");
+    }
   }
 
   loginClick(){

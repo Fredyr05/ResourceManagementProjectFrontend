@@ -35,6 +35,7 @@ export class ProjectComponent implements OnInit, OnChanges {
 
     ngOnInit(){
         if(localStorage.getItem("login") != "allowed"){
+            this.httpService.setTitle("");
             this.router.navigate(['/login']);
         }
         this.getAllProjects();
