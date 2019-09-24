@@ -40,6 +40,12 @@ export class LoginComponent implements OnInit {
     this.model.username = this.loginForm.value.username;
     this.model.password = this.loginForm.value.password;
     console.log(this.model);
+
+    if(this.loginForm.invalid){
+      window.alert('Please fill in all fields correctly');
+      return;
+    }
+
     this.signupService.getUser(this.model).subscribe(
       (res:any)=>{
         console.log(res);

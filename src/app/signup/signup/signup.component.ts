@@ -37,6 +37,11 @@ export class SignupComponent implements OnInit {
     this.model.email = this.signupForm.value.email;
     this.model.password = this.signupForm.value.password;
 
+    if(this.signupForm.invalid){
+      window.alert('Please fill in all fields correctly');
+      return;
+    }
+
     if(this.model.password == this.signupForm.value.passConfirm){
       this.signupService.postNewUser(this.model).subscribe(
         res=>{
