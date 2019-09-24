@@ -11,15 +11,18 @@
 
                     <h3>Username</h3>
                     <mat-form-field class="input-container" appearance="fill">
-                        <input type="text" matInput placeholder="username" formControlName ="username">
-                        <!-- <mat-error *ngIf="username.invalid && username.touched">
-                            Not valid
-                        </mat-error> -->
+                        <input type="text" matInput placeholder="username" formControlName ="username" required>
                     </mat-form-field>
+                    <div *ngIf="username.invalid && (username.dirty || username.touched)" class="invalid">
+                        <div *ngIf="username.errors.minlength">Must be at least 4 characters</div>
+                    </div>
                     <h3>Password</h3>
                     <mat-form-field class="input-container" appearance="fill">
-                        <input type="password" matInput placeholder="password" formControlName ="password">
+                        <input type="password" matInput placeholder="password" formControlName ="password" required>
                     </mat-form-field>
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="invalid">
+                        <div *ngIf="password.errors.minlength">Must be at least 4 characters</div>
+                    </div>
 
                     <button class="login-btn" mat-raised-button (click)="loginClick()">Login</button>
                     <mat-checkbox class="remember-checkbox" color="primary" fromControlName="checkbox"> Remember me</mat-checkbox>
