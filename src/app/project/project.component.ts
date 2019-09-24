@@ -10,7 +10,7 @@ import { faShare, faList, faTrash } from '@fortawesome/free-solid-svg-icons';
 })
 export class ProjectComponent implements OnInit, OnChanges {
 
-    constructor(private httpService: HttpService){}
+    constructor(public httpService: HttpService){}
 
     projects: any;
     resources: any;
@@ -44,6 +44,7 @@ export class ProjectComponent implements OnInit, OnChanges {
     setSelected(value){
         this.selectedValue = value;
         this.getProjectResources(this.selectedValue.projId);
+        this.httpService.setTitle(value.projName);
         return this.selectedValue;
     }
 
@@ -53,6 +54,7 @@ export class ProjectComponent implements OnInit, OnChanges {
                 this.projects = res;
                 this.filteredProjects = res;
                 this.selectedValue = this.projects[0];
+                this.httpService.setTitle(this.selectedValue.projName);
                 this.getProjectResources(this.selectedValue.projId);
             }
         );

@@ -30,6 +30,7 @@ export class ResourceComponent implements OnInit{
 
   ngOnInit(){
     this.getAllResources();
+    this.httpService.setTitle("Resources");
   }
 
   getAllResources(){

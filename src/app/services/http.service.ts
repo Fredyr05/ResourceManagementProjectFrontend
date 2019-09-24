@@ -5,6 +5,15 @@ import { HttpClient } from '@angular/common/http';
 
 export class HttpService {
     constructor(private http: HttpClient){}
+
+    title = "";
+
+    getTitle(){
+        return this.title;
+    }
+    setTitle(newTitle){
+        this.title = newTitle;
+    }
     
     url = 'http://localhost:8080/RMP';
 
