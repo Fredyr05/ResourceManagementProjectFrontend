@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+.invalid{
+    display:table;
+    color: red;
+}
+
 .signup-container{
     /* display: inline-block; */
     float: right;

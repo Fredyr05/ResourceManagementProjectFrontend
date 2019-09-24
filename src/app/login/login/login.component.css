@@ -11,6 +11,11 @@
     overflow-y: auto;
 }
 
+.invalid{
+    color: red;
+    margin-bottom: 12px;
+}
+
 ::-webkit-scrollbar{
     width: 0%;
 }

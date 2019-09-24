@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
   };
 
   loginForm = new FormGroup({
-    username:new FormControl(''),
-    password: new FormControl('')
+    username:new FormControl('',[Validators.required,Validators.minLength(4)]),
+    password: new FormControl('',[Validators.required,Validators.minLength(4)])
   });
 
   constructor(private signupService: SignupService,private router:Router) { }
@@ -50,11 +50,19 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/resource'])
         }
         else{
-          console.log('nope');
+          window.alert('User does not exist');
         }
       }
 
     );
+  }
+
+  get username(){
+    return this.loginForm.get('username');
+  }
+
+  get password(){
+    return this.loginForm.get('password');
   }
 }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SignupService } from 'src/app/services/signup.service';
 import { Router } from '@angular/router';
 
@@ -19,10 +19,10 @@ export class SignupComponent implements OnInit {
   };
 
   signupForm = new FormGroup({
-    username: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    passConfirm: new FormControl('')
+    username: new FormControl('',[Validators.required,Validators.minLength(4)]),
+    email: new FormControl('',[Validators.required,Validators.email,Validators.minLength(4)]),
+    password: new FormControl('',[Validators.required,Validators.minLength(4)]),
+    passConfirm: new FormControl('',[Validators.required,Validators.minLength(4)])
   });
 
   ngOnInit() {
@@ -47,9 +47,25 @@ export class SignupComponent implements OnInit {
       );
     }
     else{
-      console.log('did not work')
+      window.alert('Passwords do not match!');
     }
     
+  }
+
+  get username(){
+    return this.signupForm.get('username');
+  }
+
+  get email(){
+    return this.signupForm.get('email');
+  }
+
+  get password(){
+    return this.signupForm.get('password');
+  }
+
+  get passConfirm(){
+    return this.signupForm.get('passConfirm');
   }
 
 }

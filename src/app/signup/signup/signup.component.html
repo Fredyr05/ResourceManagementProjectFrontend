@@ -7,27 +7,40 @@
             <div class="field-container">
                     <h3>Username</h3>
                     <mat-form-field class="input-container" appearance="fill">
-                        <input matInput type="text" placeholder="Enter a Username" formControlName="username">
+                        <input matInput type="text" placeholder="Enter a Username" formControlName="username" required>
                     </mat-form-field>
+                    <div *ngIf="username.invalid && (username.dirty || username.touched)" class="invalid">
+                        <div *ngIf="username.errors.minlength">Must be at least 4 characters</div>
+                     </div>
             </div>
             <div class="field-container">
                     <h3>Email</h3>
                     <mat-form-field class="input-container" appearance="fill">
-                        <input matInput type="email" placeholder="Enter Email" formControlName="email">
+                        <input matInput type="email" placeholder="Enter Email" formControlName="email" required>
                     </mat-form-field>
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid">
+                        <div *ngIf="email.errors.minlength">Must be at least 4 characters</div>
+                        <div *ngIf="email.errors.email">Must be a valid email</div>
+                     </div>
             </div>
             <br>
             <div class="field-container">
                     <h3>Password</h3>
                     <mat-form-field class="input-container" appearance="fill">
-                        <input matInput type="password" placeholder="Enter a Password" formControlName="password">
+                        <input matInput type="password" placeholder="Enter a Password" formControlName="password" required>
                     </mat-form-field>
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="invalid">
+                        <div *ngIf="password.errors.minlength">Must be at least 4 characters</div>
+                    </div>
             </div>
             <div class="field-container">
                     <h3>Re-enter Password</h3>
                     <mat-form-field class="input-container" appearance="fill">
-                            <input matInput type="password" placeholder="Re-enter password" formControlName="passConfirm">
+                            <input matInput type="password" placeholder="Re-enter password" formControlName="passConfirm" required>
                     </mat-form-field>
+                    <div *ngIf="passConfirm.invalid && (passConfirm.dirty || passConfirm.touched)" class="invalid">
+                        <div *ngIf="passConfirm.errors.minlength">Must be at least 4 characters</div>
+                    </div>
             </div>
             <button class="submit-btn" mat-raised-button>Submit</button>
     
