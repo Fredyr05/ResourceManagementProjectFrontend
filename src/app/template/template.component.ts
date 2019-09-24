@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormulaService } from '../services/formula.service';
+import { HttpService } from '../services/http.service';
 import { column } from './column';
+import { FormulaService } from '../services/formula.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-template',
@@ -8,16 +10,17 @@ import { column } from './column';
   styleUrls: ['./template.component.css']
 })
 export class TemplateComponent implements OnInit {
-  constructor(private http: FormulaService) { }
+  constructor(private http: HttpService) { }
   columns: column[];
+  formulas:{columns:{"colId":Number},equation:string}[]=[];
+  projectId: string = '1';
   visiables: {name: string, visibility:boolean}[]=[{name:'resId', visibility:false},{name:'cost_code', visibility:false},{name:'editable', visibility:false},{name:'item_id', visibility:false}];
   ngOnInit() {
-    this.http.getAllProjects().subscribe(
+    this.http.getAllColumns(this.projectId).subscribe(
             (res:column[]) => {
                 this.columns =res;
                 console.log(this.columns);
-            }
-            
+            }            
         );
     if(localStorage.getItem('visiables')!=null){
      console.log(JSON.parse(localStorage.getItem('visiables')));
@@ -39,8 +42,16 @@ export class TemplateComponent implements OnInit {
   saveVisiable(){
     localStorage.setItem('visiables', JSON.stringify(this.visiables));
   }
+  saveColumns(){
+        for(let i = 0; i < this.columns.length; i++){
+      this.formulas.push({columns:{"colId":this.columns[i].colId},equation:this.columns[i].equation});
+    }console.log(this.formulas);
+    forkJoin([this.http.postAllColumns(this.projectId,this.columns),this.http.postAllFormulas(this.projectId,this.formulas)]).subscribe(res => {});
+
+  }
   saveAll(){
     this.saveVisiable();
+    this.saveColumns();
   }
 
 }

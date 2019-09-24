@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { forkJoin } from 'rxjs';
 
 @Injectable()
 
@@ -36,8 +37,12 @@ export class HttpService {
         return this.http.get(this.url + '/project/' + projId +'/template/columns');
     }
 
-    postAllColumns(projId:string, columns:any){
-        return this.http.post(this.url + '/project/' + projId +'/template/columns',columns);
+    postAllColumns(projId:string, columns){
+        return this.http.post(this.url + '/project/' + projId +'/template/columns', columns);
     }
+    postAllFormulas(projId,formulas){
+        return this.http.post(this.url + '/project/' + projId +'/template/formulas', formulas);
+    }
+
 
 }
