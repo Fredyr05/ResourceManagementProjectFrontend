@@ -95,8 +95,10 @@ export class ResourceComponent implements OnInit{
             resource.resCode = cols[j];
             resource.resName = cols[j+1];
           }
-          this.resources.push(resource);
-          this.postNewResource(resource);
+          if(resource.resCode != "" && resource.resName != ""){
+            this.resources.push(resource);
+            this.postNewResource(resource);
+          }
         }
       }
     }
