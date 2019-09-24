@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { HttpService } from '../services/http.service'; 
 import { SimpleChanges } from '@angular/core';
 import { faShare, faList, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-project',
@@ -10,7 +11,7 @@ import { faShare, faList, faTrash } from '@fortawesome/free-solid-svg-icons';
 })
 export class ProjectComponent implements OnInit, OnChanges {
 
-    constructor(public httpService: HttpService){}
+    constructor(public httpService: HttpService, private router:Router){}
 
     projects: any;
     resources: any;
@@ -33,6 +34,9 @@ export class ProjectComponent implements OnInit, OnChanges {
     @Input() selectedValue: any;
 
     ngOnInit(){
+        if(localStorage.getItem("login") != "allowed"){
+            this.router.navigate(['/login']);
+        }
         this.getAllProjects();
         this.getAllResources();
     }

@@ -26,6 +26,7 @@ export class HeaderComponent implements DoCheck{
   }
 
   signOut(){
+    localStorage.removeItem("login");
     this.router.navigate(['/login']);
   }
 }

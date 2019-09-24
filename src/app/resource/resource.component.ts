@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { faSearch, faPlus, faBars, faColumns, faFileCsv, faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { PageEvent } from "@angular/material";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-resource',
@@ -10,7 +11,7 @@ import { PageEvent } from "@angular/material";
 })
 export class ResourceComponent implements OnInit{
 
-  constructor(private httpService: HttpService){}
+  constructor(private httpService: HttpService, private router:Router){}
 
   resources: any;
   columns: any;
@@ -29,6 +30,9 @@ export class ResourceComponent implements OnInit{
   faTimesCircle = faTimesCircle;
 
   ngOnInit(){
+    if(localStorage.getItem("login") != "allowed"){
+      this.router.navigate(['/login']);
+    }
     this.getAllResources();
     this.httpService.setTitle("Resources");
   }

@@ -45,6 +45,8 @@ export class LoginComponent implements OnInit {
         console.log(res);
         if(res.password=="true"){
             // console.log('Yess');
+            localStorage.setItem("username", res.username);
+            localStorage.setItem("login", "allowed");
             this.router.navigate(['/resource'])
         }
         else{
